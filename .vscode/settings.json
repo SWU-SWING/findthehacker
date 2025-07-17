@@ -1,0 +1,9 @@
+{
+  "python.defaultInterpreterPath": "C:/Users/rlozll/.virtualenvs/rlozll-yWUq-xR5/Scripts/python.exe",
+  "python.analysis.extraPaths": [
+    "C:/Users/rlozll/.virtualenvs/rlozll-yWUq-xR5/Lib/site-packages"
+  ],
+  "python.analysis.diagnosticMode": "workspace",
+  "python.analysis.indexing": true,
+  "python.analysis.typeCheckingMode": "off"
+}

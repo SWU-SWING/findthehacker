@@ -97,8 +97,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: end;
-  margin-top: 50px;
   gap: 10px;
+  position: absolute;  /* 절대 위치 */
+  bottom: 70px;        /* 잔디 바로 위에 고정 (잔디 높이보다 약간 위로 위치) */
+  width: 100%;         /* 화면 전체 너비에 맞추기 */
 }
 
 .character {
@@ -125,3 +127,40 @@ body {
   height: auto;
   z-index: -1;
 }
+
+.desc-title {
+  position: absolute;
+  top: 20px;          
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;          
+}
+
+.desc-title img {
+  width: 500px;       
+  height: auto;
+  opacity: 0.9;
+}
+
+/* 이미지가 기본적으로 scenario.png 로 보이게 할 것 */
+.scenario-img {
+  width: 80%; 
+  height: auto;
+  margin-bottom: 60px;
+  transform: translateY(25%); 
+}
+
+/* desc-page에서만 캐릭터 흐림/선명 효과 적용 */
+.desc-page .character {
+  opacity: 0.5;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.desc-page .characters:hover .character {
+  opacity: 0.3;
+}
+
+.desc-page .characters:hover .character:hover {
+  opacity: 1;
+}
+

@@ -1,4 +1,5 @@
 import sys
+import json
 
 from flask import Flask, render_template, jsonify
 
@@ -31,3 +32,6 @@ def result(outcome):
         return render_template('result_success.html')
     else:
         return render_template('result_failure.html')
+    
+if __name__ == '__main__':
+    app.run(debug=True)

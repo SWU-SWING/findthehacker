@@ -10,12 +10,14 @@
   <div class="glass-overlay" id="glassOverlay"></div>
 
   <div class="container">
-    
-    <!-- 타이틀 이미지 -->
-    <img src="{{ url_for('static', filename='img/title.png') }}" alt="Title" class="title-img animated-title">
+     <!-- 이모지 배경 + 타이틀 -->
+    <div class="title-wrapper">
+    <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" class="pixel-frame">
+    <div class="title-layer">
+      <img src="{{ url_for('static', filename='img/title.png') }}" class="title-image">
+    </div>
+  </div>
 
-     <!-- 이모지 이미지들 -->
-    <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" alt="Icons" class="pixel-icons">
 
         <!-- 시작 버튼 -->
     <div class="start-button-container">

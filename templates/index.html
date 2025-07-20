@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find The Hacker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- 유리창 효과를 위한 오버레이 -->
+  <div class="glass-overlay" id="glassOverlay"></div>
+
+  <div class="container">
+    
+    <!-- 타이틀 이미지 -->
+    <img src="{{ url_for('static', filename='img/title.png') }}" alt="Title" class="title-img animated-title">
+
+     <!-- 이모지 이미지들 -->
+    <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" alt="Icons" class="pixel-icons">
+
+        <!-- 시작 버튼 -->
+    <div class="start-button-container">
+        <img 
+        src="{{ url_for('static', filename='img/start_box.png') }}" 
+        alt="Start Button" 
+        class="start-button" 
+        id="startButton"
+        >
+    </div>
+
+    <!-- 캐릭터 컨테이너 -->
+    <div class="characters">
+    <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" class="character" id="char1">
+    <img src="{{ url_for('static', filename='img/Choi_jump.png') }}" class="character" id="char2">
+    <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" class="character" id="char3">
+    <img src="{{ url_for('static', filename='img/Jung_jump.png') }}" class="character" id="char4">
+    <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" class="character" id="char5">
+    <img src="{{ url_for('static', filename='img/Noh_jump.png') }}" class="character" id="char6">
+    <img src="{{ url_for('static', filename='img/Proffeser_chim_jump.png') }}" class="character" id="char7">
+    <img src="{{ url_for('static', filename='img/Yoon_jump.png') }}" class="character" id="char8">
+    </div>
+
+  </div>
+
+  <!-- 잔디 이미지 (화면 하단 고정) -->
+  <img src="{{ url_for('static', filename='img/grass.png') }}" alt="Grass" class="grass">
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+</html>

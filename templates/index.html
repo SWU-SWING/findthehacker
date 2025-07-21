@@ -76,23 +76,53 @@
             position: absolute;
             bottom:580px;           
             left: 50%;
-            transform: translate(-50%, -50%);  /* 정확히 가운데 정렬 */
+            transform: translate(-50%, -50%) scale(1);  /* 정확히 가운데 정렬 */
             height: 500px;       /* 원래 이미지 비율에 맞게 조절 */
             z-index: 6;
+            animation: pulse 2.2s ease-in-out infinite;
             image-rendering: pixelated;
         }
 
-        .character {
-            position: absolute;
-            bottom: 80px;
-            height: 250px;
-            width: auto;
-            z-index: 2;
-            image-rendering: pixelated;
-            cursor: pointer;
-            transform: translateX(-50%);
-            animation: bounce 2s ease-in-out infinite;
+         @keyframes pulse {
+          0%, 100% {
+            transform: translate(-50%, -50%) scale(1);
+          }
+          50% {
+            transform: translate(-50%, -50%) scale(1.08);
+          }
         }
+
+      /* 캐릭터 줄 컨테이너 */
+      .character-row {
+           position: absolute;
+          bottom: 80px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          gap: 3vw;
+          padding: 0 2vw;
+          z-index: 2;
+      }
+
+      
+      /* 각 캐릭터 이미지 */
+        .character {
+          
+            position: static;
+            height: 18vh;
+            image-rendering: pixelated;
+            animation: bounce 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        /* Nah, Jung만 키 조정 */
+        .character[alt="Nah"],
+        .character[alt="Jung"] {
+            height: 21vh;
+        }
+
+        
 
            /* 통통 튀는 애니메이션 */
         @keyframes bounce {
@@ -108,14 +138,14 @@
         }
 
         /* 각 캐릭터별 애니메이션 딜레이 (순서대로) */
-        .character:nth-child(2) { animation-delay: 0s; }
-        .character:nth-child(3) { animation-delay: 0.4s; }
-        .character:nth-child(4) { animation-delay: 0.6s; }
-        .character:nth-child(5) { animation-delay: 0.8s; }
-        .character:nth-child(6) { animation-delay: 0.10s; }
-        .character:nth-child(7) { animation-delay: 1.2s; }
-        .character:nth-child(8) { animation-delay: 1.4s; }
-        .character:nth-child(9) { animation-delay: 1.6s; }
+        .character:nth-child(1) { animation-delay: 0s; }
+        .character:nth-child(2) { animation-delay: 0.4s; }
+        .character:nth-child(3) { animation-delay: 0.6s; }
+        .character:nth-child(4) { animation-delay: 0.8s; }
+        .character:nth-child(5) { animation-delay: 1.0s; }
+        .character:nth-child(6) { animation-delay: 1.2s; }
+        .character:nth-child(7) { animation-delay: 1.4s; }
+        .character:nth-child(8) { animation-delay: 1.6s; }
 
         /* Nah_jump와 Jung_jump 크기 조정 */
         .character[alt="Nah"],
@@ -185,6 +215,8 @@
         .character:nth-child(9) { left: 93%; }
     </style>
 </head>
+
+
 <body>
     <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
   
@@ -196,7 +228,8 @@
     <img src="{{ url_for('static', filename='img/start_box.png') }}" alt="start_box" class="start-box">
 </div>
 
-   
+   <!-- 캐릭터 줄을 감싸는 컨테이너 -->
+<div class="character-row">
     <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" alt="Juingong" class="character">
     <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" alt="Nah" class="character">
     <img src="{{ url_for('static', filename='img/Choi_jump.png') }}" alt="Choi" class="character">
@@ -205,7 +238,7 @@
     <img src="{{ url_for('static', filename='img/Yoon_jump.png') }}" alt="Yoon" class="character">
     <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" alt="Bae" class="character">
     <img src="{{ url_for('static', filename='img/Professor_chim_jump.png') }}" alt="Professor_chim" class="character">
-    
+</div>
   
     <script>
        document.addEventListener('DOMContentLoaded', function() {

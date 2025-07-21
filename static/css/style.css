@@ -44,29 +44,6 @@ body {
   border-radius: 8px;
 }
 
-/* 개별 아이콘 위치 - 더 넓게 분산 */
-.icon-code { top: 8%; left: 8%; background: #22C55E; }
-.icon-money { top: 6%; right: 20%; background: #F59E0B; }
-.icon-eye { top: 15%; right: 8%; background: #3B82F6; }
-.icon-emoji { top: 28%; left: 5%; background: #EAB308; }
-.icon-rocket { top: 38%; left: 12%; background: #EF4444; }
-.icon-news { top: 22%; right: 12%; background: #9CA3AF; }
-.icon-search { top: 48%; left: 8%; background: #06B6D4; }
-.icon-chat { top: 42%; right: 10%; background: #F59E0B; }
-
-/* 플로팅 애니메이션 */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
-}
-
-.icon:nth-child(2) { animation-delay: -1s; }
-.icon:nth-child(3) { animation-delay: -2s; }
-.icon:nth-child(4) { animation-delay: -0.5s; }
-.icon:nth-child(5) { animation-delay: -1.5s; }
-.icon:nth-child(6) { animation-delay: -2.5s; }
-.icon:nth-child(7) { animation-delay: -0.8s; }
-.icon:nth-child(8) { animation-delay: -1.8s; }
 
 /* 메인 콘텐츠 영역 */
 .main-content {

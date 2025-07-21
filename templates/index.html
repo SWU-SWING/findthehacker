@@ -23,6 +23,39 @@
             z-index: 1;
         }
 
+          /* 타이틀 영역 컨테이너 */
+        .title-container {
+            position: absolute;
+            top: 200px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 5;
+        }
+
+        /* 픽셀 아이콘들 배경 */
+        .pixel-icons {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 850px;
+            width: auto;
+            z-index: 5;
+            image-rendering: pixelated;
+        }
+
+           /* 타이틀 텍스트 */
+        .title {
+            
+            top: 400px;
+            left: 400px
+            transform: translate(-50%, -50%);
+            height: 500px;
+            width: auto;
+            z-index: 6;
+            image-rendering: pixelated;
+        }
+
         .character {
             position: absolute;
             bottom: 80px;
@@ -128,6 +161,12 @@
 </head>
 <body>
     <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
+    <!-- 타이틀 영역 -->
+    <div class="title-container">
+        <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" alt="pixel_icons" class="pixel-icons">
+        <img src="{{ url_for('static', filename='img/title.png') }}" alt="Find The Hacker" class="title">
+    </div>
+   
     <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" alt="Juingong" class="character">
     <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" alt="Nah" class="character">
     <img src="{{ url_for('static', filename='img/Choi_jump.png') }}" alt="Choi" class="character">

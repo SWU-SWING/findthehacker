@@ -1,52 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <title>Find The Hacker</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find The Hacker</title>
+    <style>
+        body {
+            background-color: #F9F99C;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grass {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        .character {
+            position: absolute;
+            bottom: 80px;
+            height: 180px;
+            width: auto;
+            z-index: 2;
+            image-rendering: pixelated;
+            cursor: pointer;
+            transform: translateX(-50%);
+        }
+
+        /* Nah_jump와 Jung_jump 크기 조정 */
+        .character[alt="Nah"],
+        .character[alt="Jung"] {
+            height: 200px;
+        }
+        
+        .character:nth-child(2) { left: 7%; }
+        .character:nth-child(3) { left: 19.29%; }
+        .character:nth-child(4) { left: 31.57%; }
+        .character:nth-child(5) { left: 43.86%; }
+        .character:nth-child(6) { left: 56.14%; }
+        .character:nth-child(7) { left: 68.43%; }
+        .character:nth-child(8) { left: 80.71%; }
+        .character:nth-child(9) { left: 93%; }
+    </style>
 </head>
 <body>
-    <!-- 유리창 효과를 위한 오버레이 -->
-  <div class="glass-overlay" id="glassOverlay"></div>
-
-  <div class="container">
-     <!-- 이모지 배경 + 타이틀 -->
-    <div class="title-wrapper">
-    <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" class="pixel-frame">
-    <div class="title-layer">
-      <img src="{{ url_for('static', filename='img/title.png') }}" class="title-image">
-    </div>
-  </div>
-
-
-        <!-- 시작 버튼 -->
-    <div class="start-button-container">
-        <img 
-        src="{{ url_for('static', filename='img/start_box.png') }}" 
-        alt="Start Button" 
-        class="start-button" 
-        id="startButton"
-        >
-    </div>
-
-    <!-- 캐릭터 컨테이너 -->
-    <div class="characters">
-    <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" class="character" id="char1">
-    <img src="{{ url_for('static', filename='img/Choi_jump.png') }}" class="character" id="char2">
-    <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" class="character" id="char3">
-    <img src="{{ url_for('static', filename='img/Jung_jump.png') }}" class="character" id="char4">
-    <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" class="character" id="char5">
-    <img src="{{ url_for('static', filename='img/Noh_jump.png') }}" class="character" id="char6">
-    <img src="{{ url_for('static', filename='img/Proffeser_chim_jump.png') }}" class="character" id="char7">
-    <img src="{{ url_for('static', filename='img/Yoon_jump.png') }}" class="character" id="char8">
-    </div>
-
-  </div>
-
-  <!-- 잔디 이미지 (화면 하단 고정) -->
-  <img src="{{ url_for('static', filename='img/grass.png') }}" alt="Grass" class="grass">
-
-  <!-- JS -->
-  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
+    <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" alt="Juingong" class="character">
+    <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" alt="Nah" class="character">
+    <img src="{{ url_for('static', filename='img/Choi_jump.png') }}" alt="Choi" class="character">
+    <img src="{{ url_for('static', filename='img/Noh_jump.png') }}" alt="Noh" class="character">
+    <img src="{{ url_for('static', filename='img/Jung_jump.png') }}" alt="Jung" class="character">
+    <img src="{{ url_for('static', filename='img/Yoon_jump.png') }}" alt="Yoon" class="character">
+    <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" alt="Bae" class="character">
+    <img src="{{ url_for('static', filename='img/Professor_chim_jump.png') }}" alt="Professor_chim" class="character">
 </body>
 </html>

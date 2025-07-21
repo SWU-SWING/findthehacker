@@ -25,12 +25,38 @@
 
           /* 타이틀 영역 컨테이너 */
         .title-container {
-            position: absolute;
-            top: 200px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
+             position: relative;  /* 변경 전: absolute → relative */
+              width: fit-content;
+              margin: 0 auto;
+              top: 200px;
+              z-index: 5;
         }
+
+        .main-stack {
+          top: 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;     /* 중앙 정렬 */
+          justify-content: center; /* 전체를 화면 중앙에 배치하려면 */
+          height: 100vh;           /* 전체 높이 사용 */
+          position: relative;
+          z-index: 5;
+          gap: 30px;               /* 요소 간 간격 */
+      }
+
+    /* 기존 클래스들은 불필요한 position 제거 */
+      .pixel-icons,
+      .title,
+      .start-box {
+          position: static; /* 절대 위치 제거 */
+          image-rendering: pixelated;
+          max-width: 100%;
+      }
+
+      /* title 크기 유지 */
+      .title {
+          height: 500px;
+      }
 
         /* 픽셀 아이콘들 배경 */
         .pixel-icons {
@@ -47,11 +73,11 @@
            /* 타이틀 텍스트 */
         .title {
             
-            top: 400px;
-            left: 400px
-            transform: translate(-50%, -50%);
-            height: 500px;
-            width: auto;
+            position: absolute;
+            bottom:580px;           
+            left: 50%;
+            transform: translate(-50%, -50%);  /* 정확히 가운데 정렬 */
+            height: 500px;       /* 원래 이미지 비율에 맞게 조절 */
             z-index: 6;
             image-rendering: pixelated;
         }
@@ -100,7 +126,7 @@
          /* 스타트 박스 */
         .start-box {
             position: absolute;
-            bottom: 430px;
+            bottom: 550px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
@@ -161,11 +187,15 @@
 </head>
 <body>
     <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
-    <!-- 타이틀 영역 -->
-    <div class="title-container">
-        <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" alt="pixel_icons" class="pixel-icons">
-        <img src="{{ url_for('static', filename='img/title.png') }}" alt="Find The Hacker" class="title">
-    </div>
+  
+
+    <!-- 새로 감싸는 컨테이너 추가 -->
+<div class="main-stack">
+    <img src="{{ url_for('static', filename='img/pixel_icons.png') }}" alt="pixel_icons" class="pixel-icons">
+    <img src="{{ url_for('static', filename='img/title.png') }}" alt="title" class="title">
+    <img src="{{ url_for('static', filename='img/start_box.png') }}" alt="start_box" class="start-box">
+</div>
+
    
     <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" alt="Juingong" class="character">
     <img src="{{ url_for('static', filename='img/Nah_jump.png') }}" alt="Nah" class="character">
@@ -175,7 +205,7 @@
     <img src="{{ url_for('static', filename='img/Yoon_jump.png') }}" alt="Yoon" class="character">
     <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" alt="Bae" class="character">
     <img src="{{ url_for('static', filename='img/Professor_chim_jump.png') }}" alt="Professor_chim" class="character">
-    <img src="{{ url_for('static', filename='img/start_box.png') }}" alt="start_box" class="start-box">
+    
   
     <script>
        document.addEventListener('DOMContentLoaded', function() {

@@ -1,0 +1,72 @@
+[
+  {
+    "ip": "10.10.33.11",
+    "timestamp": "01/Aug/2025:21:46:52 +0900",
+    "method": "GET",
+    "url": "/index.php",
+    "status": 200,
+    "size": 1542,
+    "referer": "https://eclass.haksa.ac.kr/",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  },
+  {
+    "ip": "10.10.33.13",
+    "timestamp": "01/Aug/2025:21:46:53 +0900",
+    "method": "GET",
+    "url": "/login.php",
+    "status": 200,
+    "size": 1893,
+    "referer": "https://eclass.haksa.ac.kr/",
+    "user_agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)"
+  },
+  {
+    "ip": "10.10.33.12",
+    "timestamp": "01/Aug/2025:21:46:54 +0900",
+    "method": "POST",
+    "url": "/login.php",
+    "status": 302,
+    "size": 517,
+    "referer": "https://eclass.haksa.ac.kr/",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  },
+  {
+    "ip": "10.10.33.12",
+    "timestamp": "01/Aug/2025:21:46:55 +0900",
+    "method": "GET",
+    "url": "/main.php",
+    "status": 200,
+    "size": 2387,
+    "referer": "https://eclass.haksa.ac.kr/login.php",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  },
+  {
+    "ip": "10.10.33.12",
+    "timestamp": "01/Aug/2025:21:46:56 +0900",
+    "method": "GET",
+    "url": "/popup_notice.php",
+    "status": 200,
+    "size": 1345,
+    "referer": "https://eclass.haksa.ac.kr/main.php",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  },
+  {
+    "ip": "10.10.33.12",
+    "timestamp": "01/Aug/2025:21:46:58 +0900",
+    "method": "GET",
+    "url": "https://cdn.evilcdn.co/payload.js",
+    "status": 200,
+    "size": 654,
+    "referer": "-",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  },
+  {
+    "ip": "10.10.33.14",
+    "timestamp": "01/Aug/2025:21:47:00 +0900",
+    "method": "GET",
+    "url": "/popup_notice.php",
+    "status": 200,
+    "size": 1345,
+    "referer": "https://eclass.haksa.ac.kr/",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+  }
+]

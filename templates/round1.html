@@ -39,6 +39,12 @@
             background-size: contain;
         }
 
+        .timer-container {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                }
+
         .timer {
             /* timer_round1.png가 여기에 배치될 예정 */
             width: 120px;
@@ -46,6 +52,22 @@
             background: url('/static/img/timer_round1.png') no-repeat center;
             background-size: contain;
         }
+
+
+          .timer-display {
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background-color: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 3px solid #333;
+            min-width: 120px;
+            text-align: center;
+        }
+
 
         .monitor-container {
             margin-top: 30px;
@@ -111,6 +133,11 @@
                 gap: 15px;
             }
             
+             .timer-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
             .round-title {
                 width: 250px;
                 height: 60px;
@@ -121,6 +148,13 @@
                 height: 80px;
             }
             
+              .timer-display {
+                font-size: 24px;
+                padding: 8px 15px;
+                min-width: 80px;
+            }
+
+
             .monitor-container {
                 width: 95%;
                 height: 400px;
@@ -138,6 +172,7 @@
         <div class="title-section">
             <div class="round-title"></div>
             <div class="timer"></div>
+             <div class="timer-display" id="timerDisplay">01:30</div>
         </div>
         
         <div class="monitor-container">
@@ -151,6 +186,37 @@
     </div>
 
     <script>
+          // 타이머 관련 변수
+        let timeLeft = 90; // 1분 30초 = 90초
+        let timerInterval;
+
+        // 시간을 MM:SS 형태로 포맷
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // 타이머 업데이트 함수
+        function updateTimer() {
+            const timerDisplay = document.getElementById('timerDisplay');
+            timerDisplay.textContent = formatTime(timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                // 1분 31초가 되면 main.html로 이동
+                window.location.href = '/main.html';
+                return;
+            }
+
+            timeLeft--;
+        }
+
+        // 타이머 시작 함수
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+        }
+        
         // JSON 로그 데이터를 원본 로그 형태로 변환하는 함수
         function formatLogEntry(logEntry) {
             return `${logEntry.ip} - - [${logEntry.timestamp}] "${logEntry.method} ${logEntry.url} HTTP/1.1" ${logEntry.status} ${logEntry.size} "${logEntry.referer}" "${logEntry.user_agent}"`;

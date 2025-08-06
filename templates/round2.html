@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <title>FindTheHacker-round2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="round2-title">
+        <img src="{{ url_for('static', filename='img/title_round2.png') }}" alt="Round2_Title">
+    </div>
+    <div class="round2-timer">
+        <img src="{{ url_for('static', filename='img/timer_round2.png') }}" alt="Round2_Timer">
+        <span id="round2_timer-text">01:30</span>
+    </div>
+    <div class="round2-container">
+
+        <img class="round2Monitor" src="{{ url_for('static', filename='img/monitor_round2.png') }}" alt="Round2_Monitor">
+    </div>
+    <script src="{{ url_for('static', filename='js/round2.js') }}"></script>
+</body>

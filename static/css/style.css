@@ -162,6 +162,224 @@ body {
   z-index: 10;
 }
 
+.main-title{
+  position: absolute;
+  top: 20px;          
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;          
+}
+
+.main-title img {
+  width: 500px;       
+  height: auto;
+  opacity: 1.0;
+}
+
+
+/* 캐릭터 컨테이너 */
+.main-characters_l, .main-characters_r {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 5;
+}
+
+.main-characters_l {
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-characters_l .character-img {
+    transform: scaleX(-1);
+}
+
+.main-characters_r {
+    right: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 캐릭터 래퍼 */
+/* 캐릭터 래퍼 (기본 상태) */
+.main-character_wrapper {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    opacity: 1; /* 기본 투명도 설정 */
+}
+
+/* 캐릭터 래퍼 호버 효과는 그대로 유지 */
+.main-character_wrapper:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* active 클래스가 없는 모든 캐릭터 래퍼의 투명도 낮추기 */
+/* 부모 요소인 main-container에 active 클래스가 있다면 이 효과가 적용되게 합니다. */
+.main-container.active .main-character_wrapper:not(.active) {
+    opacity: 0.5;
+}
+
+/* active 클래스가 있는 캐릭터 래퍼만 불투명하게 유지 */
+.main-container.active .main-character_wrapper.active {
+    opacity: 1;
+}
+
+/* active 클래스가 있는 캐릭터 래퍼의 크기 확대 효과 */
+.main-character_wrapper.active {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+.character-img {
+    width: 120px;
+    height: auto;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+/* 말풍선 기본 스타일 */
+.speech-bubble {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+/* 클릭시 말풍선이 보이는 상태 */
+.main-character_wrapper.active .speech-bubble {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+/* 말풍선 이미지 */
+.speech-img {
+    width: 300px;
+    height: auto;
+    display: block;
+}
+
+/* 말풍선 텍스트 */
+.speech-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    max-width: 300px;
+    line-height: 1.4;
+}
+
+/* 왼쪽 캐릭터들의 말풍선 */
+.speech-left {
+    left: 130px;
+    top: 28%;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.main-character_wrapper.active .speech-left {
+    transform: translateY(-50%) scale(1);
+}
+
+/* 오른쪽 캐릭터들의 말풍선 */
+.speech-right {
+    right: 130px;
+    top: 28%;
+    transform: translateY(-50%) scale(0.8);
+}
+
+.main-character_wrapper.active .speech-right {
+    transform: translateY(-50%) scale(1);
+}
+/* 가운데 노트 이미지 */
+
+.main-note{
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+
+.note-text {
+    position: absolute;
+    top: 110px; /* 노트 이미지 내에서 텍스트가 보여질 위치 */
+    left: 36%;
+    width: 400px;
+    height: 300px;
+    padding: 10px;
+    border: none;
+    resize: none;
+    background: transparent;
+    color: #000;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    overflow-y: auto;
+    outline: none;
+    font-family: sans-serif;
+}
+
+#nextButton {
+  position: fixed;
+  cursor: pointer;
+  bottom: 25px; /* 화면 아래에서 30px 위 */
+  left: 50%;     /* 수평 중앙 기준점 */
+  transform: translateX(-50%); /* 자기 너비의 50%만큼 왼쪽으로 이동해 정확히 중앙 정렬 */
+  z-index: 10;   /* 다른 요소 위로 올라오게 (필요시) */
+}
+.round2-title {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.round2-title img {
+  width: 280px;       
+  height: 45px;
+}
+.round2-timer {
+  position: absolute;
+  top: 30px;
+  left: 70%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+.round2-timer img {
+  width: 60px;       
+  height: 60px;
+}
+#round2_timer-text {
+    position: absolute;
+    top: 50%;
+    left: 120%; /* 기존보다 더 오른쪽으로 */
+    transform: translateY(-50%); /* 수직 정중앙 정렬 */
+    color: black;
+    font-size: 35px;  /* 폰트 크기 키움 */
+    font-weight: bold;  /* 글자 굵게 */
+    font-family: 'Courier New', monospace;
+}
+
+.round2Monitor{
+  position: absolute;
+  top: 130px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
 /* 반응형 */
 @media (max-width: 1024px) {
   .title-image { width: 700px; }

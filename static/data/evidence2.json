@@ -1,0 +1,239 @@
+{
+  "packetData": [
+    {
+      "no": 1,
+      "timestamp": "0.000",
+      "sourceIp": "10.10.33.12",
+      "destIp": "10.10.33.1",
+      "protocol": "HTTP",
+      "length": 478,
+      "info": "GET /main.php HTTP/1.1",
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "10.10.33.1"
+        },
+        "tcp": {
+          "srcPort": 59234,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/main.php",
+          "host": "eclass.haksa.ac.kr",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      }
+    },
+    {
+      "no": 2,
+      "timestamp": "0.023",
+      "sourceIp": "10.10.33.12",
+      "destIp": "10.10.33.1",
+      "protocol": "HTTP",
+      "length": 512,
+      "info": "GET /popup_notice.php HTTP/1.1",
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "10.10.33.1"
+        },
+        "tcp": {
+          "srcPort": 59234,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/popup_notice.php",
+          "host": "eclass.haksa.ac.kr",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      }
+    },
+    {
+      "no": 3,
+      "timestamp": "0.057",
+      "sourceIp": "10.10.33.12",
+      "destIp": "192.168.55.10",
+      "protocol": "DNS",
+      "length": 72,
+      "info": "Query: cdn.evilcdn.co",
+      "suspicious": true,
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "192.168.55.10"
+        },
+        "udp": {
+          "srcPort": 53210,
+          "dstPort": 53
+        },
+        "dns": {
+          "query": "cdn.evilcdn.co",
+          "responseIp": "142.250.10.55"
+        }
+      }
+    },
+    {
+      "no": 4,
+      "timestamp": "0.088",
+      "sourceIp": "10.10.33.12",
+      "destIp": "142.250.10.55",
+      "protocol": "HTTP",
+      "length": 528,
+      "info": "GET /payload.js HTTP/1.1",
+      "suspicious": true,
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "142.250.10.55"
+        },
+        "tcp": {
+          "srcPort": 59235,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/payload.js",
+          "host": "cdn.evilcdn.co",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+          "referer": "https://eclass.haksa.ac.kr/popup_notice.php"
+        }
+      }
+    },
+    {
+      "no": 5,
+      "timestamp": "0.102",
+      "sourceIp": "10.10.33.12",
+      "destIp": "142.250.10.55",
+      "protocol": "HTTP",
+      "length": 2048,
+      "info": "GET /images/monkey.png HTTP/1.1",
+      "suspicious": true,
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "142.250.10.55"
+        },
+        "tcp": {
+          "srcPort": 59236,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/images/monkey.png",
+          "host": "cdn.evilcdn.co",
+          "referer": "https://cdn.evilcdn.co/payload.js",
+          "contentType": "image/png"
+        }
+      }
+    },
+    {
+      "no": 6,
+      "timestamp": "0.125",
+      "sourceIp": "10.10.33.12",
+      "destIp": "10.10.33.1",
+      "protocol": "HTTP",
+      "length": 445,
+      "info": "GET /notice_detail.php?id=1337 HTTP/1.1",
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:01",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.12",
+          "destination": "10.10.33.1"
+        },
+        "tcp": {
+          "srcPort": 59237,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/notice_detail.php?id=1337",
+          "host": "eclass.haksa.ac.kr",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      }
+    },
+    {
+      "no": 7,
+      "timestamp": "0.187",
+      "sourceIp": "10.10.33.15",
+      "destIp": "10.10.33.1",
+      "protocol": "HTTP",
+      "length": 467,
+      "info": "GET /main.php HTTP/1.1",
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:03",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.15",
+          "destination": "10.10.33.1"
+        },
+        "tcp": {
+          "srcPort": 60123,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/main.php",
+          "host": "eclass.haksa.ac.kr",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      }
+    },
+    {
+      "no": 8,
+      "timestamp": "0.221",
+      "sourceIp": "10.10.33.11",
+      "destIp": "10.10.33.1",
+      "protocol": "HTTP",
+      "length": 492,
+      "info": "GET /course.php?id=205 HTTP/1.1",
+      "detail": {
+        "ethernet": {
+          "source": "00:13:ef:7a:9c:04",
+          "destination": "00:13:ef:7a:9c:02"
+        },
+        "ip": {
+          "source": "10.10.33.11",
+          "destination": "10.10.33.1"
+        },
+        "tcp": {
+          "srcPort": 61345,
+          "dstPort": 80
+        },
+        "http": {
+          "method": "GET",
+          "uri": "/course.php?id=205",
+          "host": "eclass.haksa.ac.kr",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"
+        }
+      }
+    }
+  ]
+}

@@ -47,8 +47,8 @@
 
         .timer {
             /* timer_round1.png가 여기에 배치될 예정 */
-            width: 120px;
-            height: 120px;
+            width: 80px;
+            height: 80px;
             background: url('/static/img/timer_round1.png') no-repeat center;
             background-size: contain;
         }
@@ -73,8 +73,8 @@
             margin-top: 30px;
             position: relative;
             width: 80%;
-            max-width: 900px;
-            height: 500px;
+            max-width: 1900px;
+            height: 1500px;
         }
 
         .monitor {
@@ -95,8 +95,8 @@
             background-color: #000;
             color: #00FF00;
             font-family: 'Courier New', monospace;
-            font-size: 12px;
-            padding: 15px;
+            font-size: 30px;
+            padding: 16px;
             overflow-y: auto;
             border-radius: 5px;
             box-sizing: border-box;
@@ -215,6 +215,8 @@
         // 타이머 시작 함수
         function startTimer() {
             timerInterval = setInterval(updateTimer, 1000);
+            formatTime();
+            updateTimer();
         }
         
         // JSON 로그 데이터를 원본 로그 형태로 변환하는 함수
@@ -257,6 +259,7 @@
         // 페이지 로드시 evidence1.json 파일 자동 로드
         window.addEventListener('load', () => {
             loadEvidence();
+            startTimer();
         });
     </script>
     </script>

@@ -1,19 +1,75 @@
 <!DOCTYPE html>
+<html lang="ko">
 <head>
+    <meta charset="UTF-8">
     <title>FindTheHacker-round2</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <!-- Round2 타이틀 -->
     <div class="round2-title">
         <img src="{{ url_for('static', filename='img/title_round2.png') }}" alt="Round2_Title">
     </div>
+
+    <!-- 타이머 -->
     <div class="round2-timer">
         <img src="{{ url_for('static', filename='img/timer_round2.png') }}" alt="Round2_Timer">
         <span id="round2_timer-text">01:30</span>
     </div>
-    <div class="round2-container">
 
+    <!-- 모니터 이미지 -->
+    <div class="round2-container">
         <img class="round2Monitor" src="{{ url_for('static', filename='img/monitor_round2.png') }}" alt="Round2_Monitor">
     </div>
+
+    <!-- 패킷 분석기 UI -->
+    <div class="packet-analyzer-overlay">
+        <div class="top-bar">
+            <span class="round2-logo">🛡 Packet Analyzer</span>
+            <div class="round2-controls">
+                <button class="round2-btn" onclick="loadPacketData()">PCAP 불러오기</button>
+                <button class="round2-btn hint" onclick="showHint()">💡 힌트</button>
+            </div>
+        </div>
+
+        <div class="round2-filterbar">
+            <select id="protocol-filter" onchange="filterPackets()">
+                <option value="">모든 프로토콜</option>
+                <option value="HTTP">HTTP</option>
+                <option value="TCP">TCP</option>
+                <option value="DNS">DNS</option>
+                <option value="UDP">UDP</option>
+            </select>
+            <input type="text" id="search-input" placeholder="내용 검색" onkeyup="filterPackets()">
+            <button class="round2-btn" onclick="filterPackets()">검색</button>
+            <button class="round2-btn" onclick="clearFilters()">초기화</button>
+        </div>
+
+        <div class="round2-main-content">
+            <div class="round2-packetlist-container">
+                <table class="round2-packetlist" id="packet-table">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Time (s)</th>
+                            <th>Source</th>
+                            <th>Destination</th>
+                            <th>Protocol</th>
+                            <th>Length</th>
+                            <th>Info</th>
+                        </tr>
+                    </thead>
+                    <tbody id="packet-table-body">
+                        <!-- JS로 데이터 들어옴 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="packet-detail" id="packet-detail"></div>
+        </div>
+
+
+
     <script src="{{ url_for('static', filename='js/round2.js') }}"></script>
 </body>
+</html>

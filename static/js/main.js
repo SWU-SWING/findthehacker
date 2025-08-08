@@ -68,7 +68,7 @@ function initializeCharacters() {
         mainContainer.classList.remove('active'); // 컨테이너의 active 클래스 제거
     });
 }
-
+//노트, 메모 불러오기
 function loadNote() {
     const noteText = document.querySelector('.note-text');
     const savedText = localStorage.getItem('note');
@@ -76,7 +76,7 @@ function loadNote() {
         noteText.value = savedText;
     }
 }
-
+//노트 메모 내용 저장
 function setupNoteSave() {
     const noteText = document.querySelector('.note-text');
     if (noteText) {
@@ -110,7 +110,7 @@ function initializeNextButton() {
                     localStorage.setItem('round', '3');
                     break;
                 case '3':
-                    nextUrl = '/select-suspect';
+                    nextUrl = '/select-suspect';//round3 끝나면 범인 선택 화면으로
                     localStorage.setItem('round', 'done');
                     break;
                 default:

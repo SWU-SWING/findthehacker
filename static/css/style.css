@@ -54,7 +54,6 @@ body {
   align-items: center;
   justify-content: center;
   height: 100%;
-  margin-top: -50px; /* 전체적으로 위로 올리기 */
 }
 
 /* 타이틀 영역 - 크기 대폭 증가 */
@@ -380,6 +379,189 @@ body {
   transform: translateX(-50%);
   z-index: 5;
 }
+
+/* 패킷 분석기 UI - 모니터 내부에 오버레이 */
+.packet-analyzer-overlay {
+    position: absolute;
+    top: 161px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1080px; /* 모니터 내부 화면 너비 */
+    height: 507px; /* 모니터 내부 화면 높이 */
+    background: #1e1e1e;
+    color: #e0e0e0;
+    font-family: 'Consolas', 'Monaco', monospace;
+    z-index: 50;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.top-bar {
+    background: #2d2d30;
+    padding: 8px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.round2-logo {
+    font-size: 14px;
+    font-weight: bold;
+    color: #00d4ff;
+}
+
+.round2-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.round2-btn {
+    background: #007acc;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 10px;
+}
+
+.round2-btn:hover {
+    background: #005a9e;
+}
+
+.round2-btn.hint {
+    background: #ffa502;
+}
+
+.round2-btn.hint:hover {
+    background: #ff6348;
+}
+
+.round2-filterbar {
+    background: #252526;
+    padding: 6px 15px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    height: 35px;
+    flex-shrink: 0;
+}
+
+.round2-filterbar select, .round2-filterbar input {
+    background: #3c3c3c;
+    color: #e0e0e0;
+    border: 1px solid #555;
+    padding: 3px 6px;
+    border-radius: 2px;
+    font-size: 10px;
+}
+
+.round2-filterbar input {
+    width: 200px;
+}
+
+.round2-main-content {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 75px);
+}
+
+.round2-packetlist-container {
+    background: #1e1e1e;
+    overflow-y: auto;
+     flex-grow: 1;
+     
+}
+
+.round2-packetlist {
+    width: 100%;
+    display: none;
+    table-layout: auto; /* 핵심! */
+    border-collapse: collapse;
+    font-size: 12px;
+}
+
+.round2-packetlist th,
+.round2-packetlist td {
+    padding: 6px 10px;
+    min-width: 80px;
+    word-break: break-all;
+    text-align: left;
+}
+
+.round2-packetlist th {
+    background: #2d2d30;
+    border-bottom: 1px solid #555;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    height: 25px;
+}
+
+.round2-packetlist th:hover {
+    background: #3c3c3c;
+}
+
+
+.packet-row {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.packet-row:hover {
+    background: #2a2a2a !important;
+    cursor: pointer;
+}
+
+.packet-row.selected {
+    background: #0e4b99 !important;
+    cursor: pointer;
+}
+
+/* 기본적으로는 표시 안 함 */
+.packet-row.suspicious {
+    background: transparent;
+    border-left: none;
+}
+
+/* 힌트가 활성화된 경우에만 표시 */
+.round2-packetlist-container.show-hint .packet-row.suspicious {
+    background: rgba(255, 71, 87, 0.1);
+    border-left: 3px solid #ff4757;
+}
+
+.packet-detail {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    background: #252526;
+    color: #e0e0e0;
+    border: 2px solid #007acc;
+    border-radius: 6px;
+    z-index: 100;
+    padding: 15px;
+    font-size: 15px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+    display: none; /* 기본적으로 숨김 */
+}
+
+/* 반응형 */
+@media (max-width: 1400px) {
+    .packet-analyzer-overlay {
+        width: 900px;
+        height: 400px;
+    }
+}
+
 /* 반응형 */
 @media (max-width: 1024px) {
   .title-image { width: 700px; }

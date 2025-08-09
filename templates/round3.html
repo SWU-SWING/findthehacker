@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Round 3</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #F9F99C;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title-section {
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .round-title {
+            width: 300px;
+            height: 80px;
+            background: url('/static/img/title_round3.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .timer-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .timer {
+            width: 80px;
+            height: 80px;
+            background: url('/static/img/timer_round3.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .timer-display {
+            font-family: 'Courier New', monospace;
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            background-color: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: 3px solid #333;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .monitor-container {
+            margin-top: 30px;
+            position: relative;
+            width: 80%;
+            max-width: 1900px;
+            height: 1500px;
+        }
+
+        .monitor {
+            width: 100%;
+            height: 100%;
+            background: url('/static/img/monitor_round3.png') no-repeat center;
+            background-size: contain;
+            position: relative;
+        }
+
+        /* 모니터 내부 컨텐츠 영역 */
+        .monitor-content {
+            position: absolute;
+            top: 15%;
+            left: 10%;
+            right: 10%;
+            bottom: 25%;
+            background-color: #000;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 16px;
+            padding: 20px;
+            overflow-y: auto;
+            border-radius: 8px;
+            box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
+        }
+
+        /* WHOIS 조회 입력 화면 */
+        .whois-input-section {
+            margin-bottom: 30px;
+        }
+
+        .input-label {
+            color: #00ff00;
+            font-size: 20px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .domain-input {
+            background-color: #003300;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            padding: 12px 15px;
+            width: 300px;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .domain-input:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+
+        .lookup-btn {
+            background-color: #006600;
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            font-size: 18px;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .lookup-btn:hover {
+            background-color: #008800;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+        }
+
+        .lookup-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* 오답 메시지 */
+        .error-message {
+            background-color: #330000;
+            border: 2px solid #ff0000;
+            color: #ff4444;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 18px;
+            display: none;
+        }
+
+        /* WHOIS 결과 영역 */
+        .whois-result {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .result-title {
+            color: #00ffff;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #00ff00;
+            padding-bottom: 10px;
+        }
+
+        .result-item {
+            margin-bottom: 15px;
+            padding: 8px 0;
+            border-bottom: 1px solid #004400;
+        }
+
+        .result-label {
+            color: #ffff00;
+            font-weight: bold;
+            display: inline-block;
+            width: 150px;
+        }
+
+        .result-value {
+            color: #00ff00;
+        }
+
+        /* 완료 버튼 */
+        .complete-btn {
+            background-color: #003366;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            font-family: 'Courier New', monospace;
+            font-size: 20px;
+            padding: 15px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: all 0.3s;
+            display: none;
+        }
+
+        .complete-btn:hover {
+            background-color: #004488;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+        }
+
+        /* 로딩 애니메이션 */
+        .loading {
+            color: #ffff00;
+            font-size: 18px;
+            display: none;
+            margin-top: 20px;
+        }
+
+        .loading::after {
+            content: '';
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% { content: '조회 중.'; }
+            33% { content: '조회 중..'; }
+            66% { content: '조회 중...'; }
+            100% { content: '조회 중.'; }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .title-section {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .timer-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .round-title {
+                width: 250px;
+                height: 60px;
+            }
+            
+            .timer {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .timer-display {
+                font-size: 24px;
+                padding: 8px 15px;
+                min-width: 80px;
+            }
+
+            .monitor-container {
+                width: 95%;
+                height: 400px;
+            }
+
+            .monitor-content {
+                font-size: 12px;
+                padding: 10px;
+                top: 18%;
+                left: 12%;
+                right: 12%;
+                bottom: 30%;
+            }
+
+            .domain-input {
+                width: 200px;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .lookup-btn {
+                font-size: 16px;
+                padding: 10px 15px;
+            }
+
+            .input-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title-section">
+            <div class="round-title"></div>
+            <div class="timer"></div>
+            <div class="timer-display" id="timerDisplay">01:30</div>
+        </div>
+        
+        <div class="monitor-container">
+            <div class="monitor">
+                <div class="monitor-content">
+                    <!-- WHOIS 조회 입력 섹션 -->
+                    <div class="whois-input-section">
+                        <div class="input-label">의심되는 도메인을 입력하세요:</div>
+                        <div class="input-container">
+                            <input type="text" 
+                                   class="domain-input" 
+                                   id="domainInput" 
+                                   placeholder="도메인명을 입력하세요"
+                                   autocomplete="off">
+                            <button class="lookup-btn" id="lookupBtn" onclick="performWhoisLookup()">조회하기</button>
+                        </div>
+                        
+                        <!-- 로딩 메시지 -->
+                        <div class="loading" id="loadingMsg">조회 중</div>
+                        
+                        <!-- 오답 메시지 -->
+                        <div class="error-message" id="errorMessage">
+                            [X] 해당 도메인은 공격과 관련 없습니다.
+                        </div>
+                    </div>
+
+                    <!-- WHOIS 결과 섹션 -->
+                    <div class="whois-result" id="whoisResult">
+                        <div class="result-title">WHOIS Lookup 결과</div>
+                        <div id="resultContent"></div>
+                        <button class="complete-btn" id="completeBtn" onclick="completeRound()">범인 확인 완료</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 타이머 관련 변수
+        let timeLeft = 90; // 1분 30초 = 90초
+        let timerInterval;
+
+        // 시간을 MM:SS 형태로 포맷
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        }
+
+        // 타이머 업데이트 함수
+        function updateTimer() {
+            const timerDisplay = document.getElementById('timerDisplay');
+            timerDisplay.textContent = formatTime(timeLeft);
+
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                // 1분 30초가 되면 main.html로 이동
+                window.location.href = '/main.html';
+                return;
+            }
+
+            timeLeft--;
+        }
+
+        // 타이머 시작 함수
+        function startTimer() {
+            timerInterval = setInterval(updateTimer, 1000);
+            updateTimer();
+        }
+
+        // 페이지 로드 시 타이머 시작
+        window.addEventListener('load', function() {
+            startTimer();
+            
+            // Enter 키로 조회하기 실행
+            document.getElementById('domainInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performWhoisLookup();
+                }
+            });
+        });
+
+        // WHOIS 조회 함수
+        async function performWhoisLookup() {
+            const domainInput = document.getElementById('domainInput');
+            const lookupBtn = document.getElementById('lookupBtn');
+            const loadingMsg = document.getElementById('loadingMsg');
+            const errorMessage = document.getElementById('errorMessage');
+            const whoisResult = document.getElementById('whoisResult');
+            
+            const domain = domainInput.value.toLowerCase().trim();
+            
+            if (!domain) {
+                alert('도메인을 입력해주세요.');
+                return;
+            }
+
+            // UI 상태 변경
+            lookupBtn.disabled = true;
+            loadingMsg.style.display = 'block';
+            errorMessage.style.display = 'none';
+            whoisResult.style.display = 'none';
+
+            try {
+                const response = await fetch('/whois_lookup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        domain: domain
+                    })
+                });
+
+                const data = await response.json();
+                
+                // 로딩 숨기기
+                loadingMsg.style.display = 'none';
+                lookupBtn.disabled = false;
+
+                if (data.success) {
+                    if (data.correct) {
+                        // 정답일 때 - WHOIS 결과 표시
+                        displayWhoisResult(data.whois_data);
+                    } else {
+                        // 오답일 때 - 에러 메시지 표시
+                        errorMessage.style.display = 'block';
+                        // 3초 후 에러 메시지 자동 숨김
+                        setTimeout(() => {
+                            errorMessage.style.display = 'none';
+                        }, 3000);
+                    }
+                } else {
+                    alert('조회 중 오류가 발생했습니다: ' + data.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('네트워크 오류가 발생했습니다.');
+                loadingMsg.style.display = 'none';
+                lookupBtn.disabled = false;
+            }
+        }
+
+        // WHOIS 결과 표시 함수
+        function displayWhoisResult(whoisData) {
+            const resultContent = document.getElementById('resultContent');
+            const whoisResult = document.getElementById('whoisResult');
+            const completeBtn = document.getElementById('completeBtn');
+            
+            // 날짜 포맷팅
+            const creationDate = new Date(whoisData.creationDate).toLocaleDateString('ko-KR', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            }).replace(/\./g, '-').slice(0, -1);
+
+            resultContent.innerHTML = `
+                <div class="result-item">
+                    <span class="result-label">도메인명:</span>
+                    <span class="result-value">${whoisData.domainName}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">등록기관:</span>
+                    <span class="result-value">${whoisData.registrar}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">생성일:</span>
+                    <span class="result-value">${creationDate}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">등록자 이름:</span>
+                    <span class="result-value">${whoisData.registrant.name}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">소속:</span>
+                    <span class="result-value">${whoisData.registrant.organization}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">국가:</span>
+                    <span class="result-value">${whoisData.registrant.country} (중국)</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">이메일:</span>
+                    <span class="result-value">${whoisData.registrant.email}</span>
+                </div>
+                <div class="result-item">
+                    <span class="result-label">상태:</span>
+                    <span class="result-value">${whoisData.status}</span>
+                </div>
+            `;
+            
+            whoisResult.style.display = 'block';
+            completeBtn.style.display = 'inline-block';
+        }
+
+        // 라운드 완료 함수
+        function completeRound() {
+            alert('범인을 찾았습니다! 다음 라운드로 진행합니다.');
+            // 다음 페이지로 이동하거나 메인 페이지로 이동
+            window.location.href = '/main.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+
+{
+  "domainName": "evil-attacker.site",
+  "registrar": "NameSilo, LLC",
+  "creationDate": "2024-03-18T15:03:00Z",
+  "registrant": {
+    "name": "Zheng Li",
+    "organization": "Shenzhen Phantom Tech",
+    "country": "CN",
+    "email": "contact@phantom-tech.cn"
+  },
+  "status": "clientTransferProhibited"
+}
+

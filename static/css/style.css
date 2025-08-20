@@ -676,6 +676,7 @@ body {
     flex-shrink: 0;
 }
 
+
 /* 말풍선 기본 스타일 */
 .select_speech-bubble {
     position: relative;
@@ -701,7 +702,48 @@ body {
     display: block;
 }
 
+/* 말풍선 텍스트 */
+.select_speech-text {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    line-height: 1.2;
+    word-wrap: break-word;
+    pointer-events: none;
+}
 
+/* 선택된 캐릭터 효과 */
+.select-character_wrapper.selected {
+    transform: scale(1.05);
+}
+
+.select-character_wrapper.selected .select_character-img {
+    border: 3px solid #ff0000;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+
+/* 다음 버튼 */
+#confirmButton {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    z-index: 10;
+}
+
+#confirmButton:hover {
+    transform: translateX(-50%) scale(1.1);
+}
 
 /* 반응형 */
 @media (max-width: 1400px) {

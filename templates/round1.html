@@ -205,7 +205,7 @@
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
                 // 1분 31초가 되면 main.html로 이동
-                window.location.href = '/main.html';
+                window.location.href = '/main';
                 return;
             }
 
@@ -255,6 +255,7 @@
                 logDisplay.innerHTML = '<div class="log-line">로그 파일을 불러올 수 없습니다.</div>';
             }
         }
+        
 
         // 페이지 로드시 evidence1.json 파일 자동 로드
         window.addEventListener('load', () => {

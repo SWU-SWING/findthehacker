@@ -13,7 +13,14 @@ document.addEventListener('DOMContentLoaded', () => {
       scenarioImage.src = defaultSrc;
     });
   });
+
+  // GameStart 버튼 클릭 시 round1으로 이동
+  document.getElementById("btn-start").addEventListener("click", () => {
+    localStorage.clear(); // 모든 저장값 삭제 (round, note 등)
+    window.location.href = '/round1'; 
+  });
 });
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const characters = document.querySelectorAll('.character');

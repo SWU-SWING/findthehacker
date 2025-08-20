@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+    <title>FindTheHacker-select</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="select-title">
+        <img src="{{ url_for('static', filename='img/title_desc.png') }}" alt="select_Title">
+    </div>
+    <div class="select-container">
+        <div class="select-characters_l">
+            <div class="select-character_wrapper" data-character="bae">
+                <img src="{{ url_for('static', filename='img/Bae_main.png') }}" class="select_character-img" id="char1-left">
+                <div class="select_speech-bubble select_speech-left">
+                    <img src="{{ url_for('static', filename='img/speech_left.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+            
+            <div class="select-character_wrapper" data-character="jung">
+                <img src="{{ url_for('static', filename='img/Jung_main.png') }}" class="select_character-img" id="char2-left">
+                <div class="select_speech-bubble select_speech-left">
+                    <img src="{{ url_for('static', filename='img/speech_left.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+            
+            <div class="select-character_wrapper" data-character="nah">
+                <img src="{{ url_for('static', filename='img/Nah_main.png') }}" class="select_character-img" id="char3-left">
+                <div class="select_speech-bubble select_speech-left">
+                    <img src="{{ url_for('static', filename='img/speech_left.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="select-characters_r">
+            <div class="select-character_wrapper" data-character="noh">
+                <img src="{{ url_for('static', filename='img/Noh_main.png') }}" class="select_character-img" id="char4-right">
+                <div class="select_speech-bubble select_speech-right">
+                    <img src="{{ url_for('static', filename='img/speech_right.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+            
+            <div class="select-character_wrapper" data-character="choi">
+                <img src="{{ url_for('static', filename='img/Choi_main.png') }}" class="select_character-img" id="char5-right">
+                <div class="select_speech-bubble select_speech-right">
+                    <img src="{{ url_for('static', filename='img/speech_right.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+            
+            <div class="select-character_wrapper" data-character="yoon">
+                <img src="{{ url_for('static', filename='img/Yoon_main.png') }}" class="select_character-img" id="char6-right">
+                <div class="select_speech-bubble select_speech-right">
+                    <img src="{{ url_for('static', filename='img/speech_right.png') }}" class="select_speech-img">
+                    <div class="select_speech-text"></div>
+                </div>
+            </div>
+        </div>
+        
+        <img src="{{ url_for('static', filename='img/btn-select.png') }}" id="nextButton">
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/select.js') }}"></script>
+</body>
+</html>

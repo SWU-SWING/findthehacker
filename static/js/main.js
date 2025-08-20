@@ -8,10 +8,6 @@ const characterDialogues = {
     yoon: "윤지강입니다."
 };
 
-// main 페이지 처음 진입 시 round1 종료 이후라고 간주
-if (!localStorage.getItem('round')) {
-    localStorage.setItem('round', '1');
-}
 
 // DOM이 로드된 후 실행
 document.addEventListener('DOMContentLoaded', function() {
@@ -86,38 +82,40 @@ function setupNoteSave() {
     }
 }
 
-// Next 버튼 클릭 시 페이지 이동(round2,round3)
+
+// Next 버튼 클릭 시 라운드에 따라 페이지 이동
 function initializeNextButton() {
     const nextButton = document.getElementById('nextButton');
-    if (nextButton) {
-        nextButton.addEventListener('click', function (event) {
-            event.stopPropagation(); // 버블링 방지
+    if (!nextButton) return;
 
-            // 현재 라운드 가져오기 (round1 끝나고 main 들어오면 '1'부터 시작)
-            let currentRound = localStorage.getItem('round');
-            if (!currentRound) {
-                currentRound = '1';  // round1 끝나고 들어온 첫 main이니까
-            }
+    nextButton.addEventListener('click', function (event) {
+        event.stopPropagation();
 
-            let nextUrl = '';
-            switch (currentRound) {
-                case '1':
-                    nextUrl = '/round2';
-                    localStorage.setItem('round', '2');
-                    break;
-                case '2':
-                    nextUrl = '/round3';
-                    localStorage.setItem('round', '3');
-                    break;
-                case '3':
-                    nextUrl = '/select-suspect';//round3 끝나면 범인 선택 화면으로
-                    localStorage.setItem('round', 'done');
-                    break;
-                default:
-                    nextUrl = '/'; // 그 외에는 홈으로
-            }
+        let currentRound = localStorage.getItem('round');
 
-            window.location.href = nextUrl;
-        });
-    }
+        // round 값이 없으면 초기값은 2
+        if (!currentRound) {
+            currentRound = '2';
+            localStorage.setItem('round', '2');
+        }
+
+        let nextUrl = '';
+
+        if (currentRound === '2') {
+            // round2 시작
+            nextUrl = '/round2';
+            localStorage.setItem('round', '3'); // 타이머 끝나면 main으로 돌아옴 → 그 후 버튼 클릭 시 round3로 가도록
+        } else if (currentRound === '3') {
+            // round3 시작
+            nextUrl = '/round3';
+            localStorage.setItem('round', 'done'); // 이후는 용의자 선택 페이지
+        } else {
+            // round 다 끝나면
+            nextUrl = '/select-suspect';
+        }
+
+        window.location.href = nextUrl;
+    });
 }
+
+

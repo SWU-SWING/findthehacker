@@ -37,6 +37,7 @@ function startTimer() {
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
             timerText.textContent = "00:00";
+            localStorage.setItem('round', '3'); // 타이머 끝나면 다음 라운드 설정
             // 여기에 타이머 종료 시 동작
             window.location.href = "/main";
         }
@@ -181,5 +182,5 @@ function showHint() {
 function closePacketDetail() {
     document.getElementById('packet-detail').style.display = 'none';
 }
-
+localStorage.setItem('round', '2');
 window.onload = startTimer;

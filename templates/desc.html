@@ -10,6 +10,9 @@
 <div class="desc-title">
   <img src="{{ url_for('static', filename='img/title_desc.png') }}" alt="Scenario Title">
 </div>
+
+  <img id="btn-start" src="{{ url_for('static', filename='img/btn-start.png') }}" id="GameStart">
+
   <div class="desc_container">
     <!-- 기본 이미지로 scenario.png 설정 -->
     <img id="scenarioImage"
@@ -18,7 +21,7 @@
      class="scenario-img">
 
     <!-- 캐릭터 섹션 -->
-    <div class="characters">
+    <div class="desc-characters">
       <img src="{{ url_for('static', filename='img/Juingong_jump.png') }}" class="character" id="char3" 
            data-intro="{{ url_for('static', filename='img/Juingong_introduce.png') }}" 
            onmouseover="changeScenarioImage(this)" onmouseout="resetScenarioImage()">
@@ -40,7 +43,7 @@
       <img src="{{ url_for('static', filename='img/Bae_jump.png') }}" class="character" id="char1" 
            data-intro="{{ url_for('static', filename='img/Bae_introduce.png') }}" 
            onmouseover="changeScenarioImage(this)" onmouseout="resetScenarioImage()">
-      <img src="{{ url_for('static', filename='img/Proffeser_chim_jump.png') }}" class="character" id="char7" 
+      <img src="{{ url_for('static', filename='img/Professor_chim_jump.png') }}" class="character" id="char7" 
            data-intro="{{ url_for('static', filename='img/Professor_chim_introduce.png') }}" 
            onmouseover="changeScenarioImage(this)" onmouseout="resetScenarioImage()">
 

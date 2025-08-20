@@ -26,6 +26,10 @@ def round_page(round_num):
 def get_evidence(round_name):
     with open(f'static/data/{round_name}.json', encoding='utf-8') as f:
         return jsonify(json.load(f))
+    
+@app.route('/select')
+def select():
+    return render_template('select.html')
 
 @app.route('/result/<outcome>')
 def result(outcome):

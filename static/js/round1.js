@@ -17,7 +17,7 @@ function updateTimer() {
     if (timeLeft <= 0) {
         clearInterval(timerInterval);
         // 1분 31초가 되면 main.html로 이동
-        window.location.href = '/main.html';
+        window.location.href = '/main';
         return;
     }
 

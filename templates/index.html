@@ -55,16 +55,16 @@
 
       /* title 크기 유지 */
       .title {
-          height: 500px;
+          height: 300px;
       }
 
         /* 픽셀 아이콘들 배경 */
         .pixel-icons {
             position: absolute;
-            top: 0;
+            bottom: 360px;
             left: 50%;
             transform: translateX(-50%);
-            height: 850px;
+            height: 650px;
             width: auto;
             z-index: 5;
             image-rendering: pixelated;
@@ -74,10 +74,10 @@
         .title {
             
             position: absolute;
-            bottom:580px;           
+            bottom:40px;           
             left: 50%;
             transform: translate(-50%, -50%) scale(1);  /* 정확히 가운데 정렬 */
-            height: 500px;       /* 원래 이미지 비율에 맞게 조절 */
+            height: 370px;       /* 원래 이미지 비율에 맞게 조절 */
             z-index: 6;
             animation: pulse 2.2s ease-in-out infinite;
             image-rendering: pixelated;
@@ -110,7 +110,7 @@
         .character {
           
             position: static;
-            height: 18vh;
+            height: 16vh;
             image-rendering: pixelated;
             animation: bounce 2s ease-in-out infinite;
             cursor: pointer;
@@ -119,7 +119,7 @@
         /* Nah, Jung만 키 조정 */
         .character[alt="Nah"],
         .character[alt="Jung"] {
-            height: 21vh;
+            height: 22vh;
         }
 
         
@@ -147,20 +147,16 @@
         .character:nth-child(7) { animation-delay: 1.4s; }
         .character:nth-child(8) { animation-delay: 1.6s; }
 
-        /* Nah_jump와 Jung_jump 크기 조정 */
-        .character[alt="Nah"],
-        .character[alt="Jung"] {
-            height: 300px;
-        }
+     
 
          /* 스타트 박스 */
         .start-box {
             position: absolute;
-            bottom: 550px;
+            bottom: 400px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            height: 150px;
+            height: 100px;
             z-index: 10;
             image-rendering: pixelated;
             cursor: pointer;

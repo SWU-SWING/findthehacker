@@ -2,7 +2,7 @@ import sys
 import json
 import os
 
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, abort
 
 app = Flask(__name__)
 
@@ -31,12 +31,15 @@ def get_evidence(round_name):
 def select():
     return render_template('select.html')
 
-@app.route('/result/<outcome>')
+@app.route('/result_<outcome>')
 def result(outcome):
-    if outcome == "success":
-        return render_template('result_success.html')
+    # 허용된 outcome만 처리
+    if outcome in ['success', 'failure']:
+        return render_template(f'result_{outcome}.html')
     else:
-        return render_template('result_failure.html')
+        # 잘못된 outcome일 경우 404 에러
+        abort(404)
+
     
 @app.route('/whois_lookup', methods=['POST'])
 def whois_lookup():

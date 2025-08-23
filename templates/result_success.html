@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result_success</title>
+    <style>
+        body {
+            background-color: #F9F99C;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .grass {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* 캐릭터 컨테이너 */
+        .characters-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40vh;
+            z-index: 2;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+
+        /* 개별 캐릭터 스타일 */
+        .character {
+            height: auto;
+            max-height: 35vh;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* 왼쪽 경찰관 */
+        .success-cop {
+            max-width: 20vw;
+            margin-bottom: 2vh;
+        }
+
+        /* 가운데 치오 */
+        .success-chio {
+            max-width: 18vw;
+            margin-bottom: 2vh;
+        }
+
+        /* 오른쪽 주인공 */
+        .success-juingong {
+            max-width: 22vw;
+            margin-bottom: 2vh;
+        }
+
+        /* 반응형 조정 */
+        @media (max-width: 768px) {
+            .characters-container {
+                height: 35vh;
+            }
+            
+            .character {
+                max-height: 30vh;
+            }
+
+            .success-cop {
+                max-width: 25vw;
+            }
+
+            .success-chio {
+                max-width: 22vw;
+            }
+
+            .success-juingong {
+                max-width: 28vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .characters-container {
+                height: 30vh;
+            }
+            
+            .character {
+                max-height: 25vh;
+            }
+
+            .success-cop {
+                max-width: 28vw;
+            }
+
+            .success-chio {
+                max-width: 25vw;
+            }
+
+            .success-juingong {
+                max-width: 30vw;
+            }
+        }
+
+        /* SUCCESS! 타이틀 */
+        .success-title {
+            position: fixed;
+            top: 8vh;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 60vw;
+            height: auto;
+            z-index: 3;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* 말풍선과 대사 컨테이너 */
+        .speech-container {
+            position: fixed;
+            top: 25vh;
+            right: 8vw;
+            z-index: 3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 말풍선 */
+        .success-speechballoon {
+            width: auto;
+            max-width: 35vw;
+            height: auto;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            position: relative;
+        }
+
+        /* 대사 텍스트 */
+        .success-dialogue {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            max-width: 20vw;
+            height: auto;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+        }
+
+        /* 반응형 조정 - 타이틀과 말풍선 */
+        @media (max-width: 768px) {
+            .success-title {
+                top: 6vh;
+                max-width: 70vw;
+            }
+
+            .speech-container {
+                top: 20vh;
+                right: 5vw;
+            }
+
+            .success-speechballoon {
+                max-width: 45vw;
+            }
+
+            .success-dialogue {
+                max-width: 30vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-title {
+                top: 5vh;
+                max-width: 80vw;
+            }
+
+            .speech-container {
+                top: 18vh;
+                right: 3vw;
+            }
+
+            .success-speechballoon {
+                max-width: 55vw;
+            }
+
+            .success-dialogue {
+                max-width: 35vw;
+            }
+        }
+
+        /* 장식 아이템들 */
+        .decoration-item {
+            position: fixed;
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            z-index: 2;
+        }
+
+        /* 왼쪽 상단 - 코딩 아이콘 */
+        .success-coding {
+            top: 12vh;
+            left: 5vw;
+            width: auto;
+            max-width: 10vw;
+            height: auto;
+        }
+
+        /* 오른쪽 상단 - 눈 아이콘 */
+        .success-eye {
+            top: 8vh;
+            right: 12vw;
+            width: auto;
+            max-width: 8vw;
+            height: auto;
+        }
+
+        /* 오른쪽 - 뉴스 아이콘 */
+        .success-news {
+            top: 18vh;
+            right: 2vw;
+            width: auto;
+            max-width: 9vw;
+            height: auto;
+        }
+
+        /* 왼쪽 하단 - 마이크로폰(돋보기) 아이콘 */
+        .success-microphone {
+            bottom: 35vh;
+            left: 8vw;
+            width: auto;
+            max-width: 9vw;
+            height: auto;
+        }
+
+        /* 가운데 하단 - 물음표 아이콘 */
+        .success-question {
+            bottom: 25vh;
+            left: 45vw;
+            width: auto;
+            max-width: 7vw;
+            height: auto;
+        }
+
+        /* 오른쪽 하단 - 돈 아이콘 */
+        .success-money {
+            bottom: 28vh;
+            right: 25vw;
+            width: auto;
+            max-width: 8vw;
+            height: auto;
+        }
+
+        /* 반응형 조정 - 장식 아이템들 */
+        @media (max-width: 768px) {
+            .success-coding {
+                top: 10vh;
+                left: 3vw;
+                max-width: 10vw;
+            }
+
+            .success-eye {
+                top: 6vh;
+                right: 8vw;
+                max-width: 8vw;
+            }
+
+            .success-news {
+                top: 15vh;
+                right: 1vw;
+                max-width: 9vw;
+            }
+
+            .success-microphone {
+                bottom: 32vh;
+                left: 5vw;
+                max-width: 9vw;
+            }
+
+            .success-question {
+                bottom: 22vh;
+                left: 42vw;
+                max-width: 7vw;
+            }
+
+            .success-money {
+                bottom: 25vh;
+                right: 20vw;
+                max-width: 8vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-coding {
+                top: 8vh;
+                left: 2vw;
+                max-width: 12vw;
+            }
+
+            .success-eye {
+                top: 5vh;
+                right: 5vw;
+                max-width: 10vw;
+            }
+
+            .success-news {
+                top: 12vh;
+                right: 1vw;
+                max-width: 11vw;
+            }
+
+            .success-microphone {
+                bottom: 28vh;
+                left: 3vw;
+                max-width: 11vw;
+            }
+
+            .success-question {
+                bottom: 18vh;
+                left: 40vw;
+                max-width: 9vw;
+            }
+
+            .success-money {
+                bottom: 20vh;
+                right: 15vw;
+                max-width: 10vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 잔디 배경 -->
+    <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
+    
+    <!-- SUCCESS! 타이틀 -->
+    <img src="{{ url_for('static', filename='img/success_title.png') }}" alt="SUCCESS!" class="success-title">
+    
+    <!-- 말풍선과 대사 -->
+    <div class="speech-container">
+        <img src="{{ url_for('static', filename='img/success_speachballoon.png') }}" alt="speech balloon" class="success-speechballoon">
+        <img src="{{ url_for('static', filename='img/success_dialoge.png') }}" alt="dialogue" class="success-dialogue">
+    </div>
+    
+    <!-- 장식 아이템들 -->
+    <img src="{{ url_for('static', filename='img/success_coding.png') }}" alt="coding icon" class="decoration-item success-coding">
+    <img src="{{ url_for('static', filename='img/success_eye.png') }}" alt="eye icon" class="decoration-item success-eye">
+    <img src="{{ url_for('static', filename='img/success_news.png') }}" alt="news icon" class="decoration-item success-news">
+    <img src="{{ url_for('static', filename='img/success_microphone.png') }}" alt="microphone icon" class="decoration-item success-microphone">
+    <img src="{{ url_for('static', filename='img/success_question.png') }}" alt="question icon" class="decoration-item success-question">
+    <img src="{{ url_for('static', filename='img/success_money.png') }}" alt="money icon" class="decoration-item success-money">
+    
+    <!-- 캐릭터들 -->
+    <div class="characters-container">
+        <img src="{{ url_for('static', filename='img/success_cop.png') }}" alt="success cop" class="character success-cop">
+        <img src="{{ url_for('static', filename='img/success_chio.png') }}" alt="success chio" class="character success-chio">
+        <img src="{{ url_for('static', filename='img/success_juingong.png') }}" alt="success juingong" class="character success-juingong">
+    </div>
+</body>
+</html>

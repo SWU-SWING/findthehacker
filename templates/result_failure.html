@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result_failure</title>
+    <style>
+        body {
+            background-color: #F9F99C;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .grass {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: auto;
+            z-index: 1;
+        }
+
+        /* 캐릭터들 */
+        .character {
+            position: fixed;
+            bottom: 10%;
+            height: 25vh;
+            width: auto;
+            z-index: 2;
+        }
+
+        .chio {
+            left: 8%;
+        }
+
+        .chim {
+            left: 35%;
+            height: 15vh; /* 중간 캐릭터는 조금 작게 */
+        }
+
+        .juingong {
+            right: 8%;
+            height: 30vh; /* 주인공은 조금 더 크게 */
+        }
+
+        /* 말풍선들 */
+        .dialogue {
+            position: fixed;
+            z-index: 3;
+            width: auto;
+            height: auto;
+        }
+
+        .juingong-dialogue {
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 40vw;
+            height: auto;
+        }
+
+        .chio-dialogue {
+            top: 45%;
+            left: 15%;
+            max-width: 25vw;
+            height: auto;
+        }
+
+        /* 타이틀 */
+        .title {
+            position: fixed;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 60vw;
+            height: auto;
+            z-index: 4;
+        }
+
+        /* 장식 요소들 */
+        .decoration {
+            position: fixed;
+            z-index: 0.5; /* 배경과 잔디 사이 */
+        }
+
+        .microphone {
+            left: 5%;
+            top: 55%;
+            height: 12vh;
+            width: auto;
+        }
+
+        .money {
+            left: 8%;
+            top: 25%;
+            height: 8vh;
+            width: auto;
+        }
+
+        .news {
+            right: 5%;
+            top: 20%;
+            height: 10vh;
+            width: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 배경 이미지 -->
+    <img src="{{ url_for('static', filename='img/result_fail_depressed.png') }}" alt="background" class="background-image">
+    
+    <!-- 장식 요소들 (배경과 캐릭터 사이) -->
+    <img src="{{ url_for('static', filename='img/result_fail_microphone.png') }}" alt="마이크" class="decoration microphone">
+    <img src="{{ url_for('static', filename='img/result_fail_money.png') }}" alt="돈" class="decoration money">
+    <img src="{{ url_for('static', filename='img/result_fail_news.png') }}" alt="뉴스" class="decoration news">
+    
+    <!-- 말풍선들 -->
+    <img src="{{ url_for('static', filename='img/result_fail_juingong_dialogue.png') }}" alt="주인공 대사" class="dialogue juingong-dialogue">
+    <img src="{{ url_for('static', filename='img/result_fail_chio_dialogue.png') }}" alt="치오 대사" class="dialogue chio-dialogue">
+    
+    <!-- 타이틀 -->
+    <img src="{{ url_for('static', filename='img/result_fail_title.png') }}" alt="FAIL 타이틀" class="title">
+    
+    <!-- 캐릭터들 -->
+    <img src="{{ url_for('static', filename='img/result_fail_chio.png') }}" alt="치오" class="character chio">
+    <img src="{{ url_for('static', filename='img/result_fail_chim.png') }}" alt="침" class="character chim">
+    <img src="{{ url_for('static', filename='img/result_fail_juingong.png') }}" alt="주인공" class="character juingong">
+    
+    <!-- 잔디 배경 -->
+    <img src="{{ url_for('static', filename='img/grass.png') }}" alt="grass" class="grass">
+   
+</body>
+</html>

@@ -125,36 +125,14 @@
             image-rendering: crisp-edges;
         }
 
-        /* 말풍선과 대사 컨테이너 */
-        .speech-container {
+        /* 말풍선과 대사 (통합된 단일 이미지) */
+        .success-juingong-dialogue {
             position: fixed;
             top: 25vh;
             right: 8vw;
             z-index: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* 말풍선 */
-        .success-speechballoon {
             width: auto;
             max-width: 35vw;
-            height: auto;
-            image-rendering: pixelated;
-            image-rendering: -moz-crisp-edges;
-            image-rendering: crisp-edges;
-            position: relative;
-        }
-
-        /* 대사 텍스트 */
-        .success-dialogue {
-            position: absolute;
-            top: 45%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: auto;
-            max-width: 20vw;
             height: auto;
             image-rendering: pixelated;
             image-rendering: -moz-crisp-edges;

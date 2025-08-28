@@ -49,20 +49,27 @@
 
         /* 왼쪽 경찰관 */
         .success-cop {
-            max-width: 20vw;
-            margin-bottom: 2vh;
+            margin-bottom: 14vh;   /* 위로 조금 올림 */
+            position: relative;
+            left: -7.2vw;           /* 왼쪽으로 이동 */
+            transform: scale(3.3) scaleX(-1); /* X축 반전 */
         }
 
         /* 가운데 치오 */
         .success-chio {
-            max-width: 18vw;
-            margin-bottom: 2vh;
+            transform: scale(2.8);
+            position: relative;
+            left: -23vw;
+            max-width: 20vw;
+            margin-bottom: 12vh;
         }
 
         /* 오른쪽 주인공 */
         .success-juingong {
-            max-width: 22vw;
-            margin-bottom: 2vh;
+            transform: scale(7);  /* 7배 확대 */
+            margin-bottom: 30vh;
+            position: relative;
+            right: 1vw;
         }
 
         /* 반응형 조정 */
@@ -126,10 +133,11 @@
         }
 
         /* 말풍선과 대사 (통합된 단일 이미지) */
-        .success-juingong-dialogue {
+        .speech-container {
             position: fixed;
-            top: 25vh;
-            right: 8vw;
+            top: 30vh;
+            left: 82vh;
+            transform: translateX(-50%);
             z-index: 3;
             width: auto;
             max-width: 35vw;
@@ -138,6 +146,8 @@
             image-rendering: -moz-crisp-edges;
             image-rendering: crisp-edges;
         }
+
+        
 
         /* 반응형 조정 - 타이틀과 말풍선 */
         @media (max-width: 768px) {
@@ -201,7 +211,7 @@
         /* 오른쪽 상단 - 눈 아이콘 */
         .success-eye {
             top: 8vh;
-            right: 12vw;
+            right: 9vw;
             width: auto;
             max-width: 8vw;
             height: auto;
@@ -210,7 +220,7 @@
         /* 오른쪽 - 뉴스 아이콘 */
         .success-news {
             top: 18vh;
-            right: 2vw;
+            right: 12vw;
             width: auto;
             max-width: 9vw;
             height: auto;
@@ -227,7 +237,7 @@
 
         /* 가운데 하단 - 물음표 아이콘 */
         .success-question {
-            bottom: 25vh;
+            bottom: 15vh;
             left: 45vw;
             width: auto;
             max-width: 7vw;
@@ -237,7 +247,7 @@
         /* 오른쪽 하단 - 돈 아이콘 */
         .success-money {
             bottom: 28vh;
-            right: 25vw;
+            right: 34vw;
             width: auto;
             max-width: 8vw;
             height: auto;
@@ -315,7 +325,7 @@
 
             .success-money {
                 bottom: 20vh;
-                right: 15vw;
+                right: 20vw;
                 max-width: 10vw;
             }
         }
@@ -331,7 +341,6 @@
     <!-- 말풍선과 대사 -->
     <div class="speech-container">
         <img src="{{ url_for('static', filename='img/success_speachballoon.png') }}" alt="speech balloon" class="success-speechballoon">
-        <img src="{{ url_for('static', filename='img/success_dialoge.png') }}" alt="dialogue" class="success-dialogue">
     </div>
     
     <!-- 장식 아이템들 -->

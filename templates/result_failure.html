@@ -40,6 +40,11 @@
             height: 25vh;
             width: auto;
             z-index: 2;
+
+            /* 화질 개선 */
+            image-rendering: pixelated;
+            image-rendering: -moz-crisp-edges; /* Firefox */
+            image-rendering: crisp-edges;      /* 기타 브라우저 */
         }
 
         .chio {

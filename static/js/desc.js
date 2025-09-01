@@ -44,21 +44,3 @@ document.addEventListener('DOMContentLoaded', () => {
   bounceNext(); // 점프 시작!
 });
 
-// 화면 전체 스케일 자동 조정
-function adjustGameScale() {
-  const baseWidth = 1538;
-  const baseHeight = 831;
-
-  const scaleX = window.innerWidth / baseWidth;
-  const scaleY = window.innerHeight / baseHeight;
-  const scale = Math.min(scaleX, scaleY);
-
-  document.body.style.transform = `scale(${scale})`;
-  document.body.style.transformOrigin = 'top left';
-  document.body.style.width = `${baseWidth}px`;
-  document.body.style.height = `${baseHeight}px`;
-}
-
-// 화면 크기 변경 시 자동 적용
-window.addEventListener('resize', adjustGameScale);
-window.addEventListener('load', adjustGameScale);

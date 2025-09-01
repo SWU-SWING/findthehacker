@@ -8,6 +8,7 @@ body {
   overflow: hidden; /* 스크롤 방지 */
 }
 
+
 .container {
   position: relative;
   height: 100vh;
@@ -137,6 +138,7 @@ body {
   animation: jump 0.6s ease;
 }
 
+
 /* 잔디 */
 .grass {
   position: absolute;
@@ -165,21 +167,21 @@ body {
 
 .desc-title {
   position: absolute;
-  top: 20px;          
+  top: 7%;          
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;          
 }
 
 .desc-title img {
-  width: 500px;       
+  width: 650px;       
   height: auto;
   opacity: 0.9;
 }
 
 #btn-start{
   position: absolute;
-  top: 30px;
+  top: 7%;
   left: 85%;
   transform: translateX(-50%);
   z-index: 5;
@@ -191,7 +193,7 @@ body {
   width: 65%;           /* 기본보다 작게 */
   height: auto;
   margin-bottom: 40px;  /* 여백 살짝 줄임 */
-  transform: translateY(32%);
+  transform: translateY(50%);
 }
 
 /* desc-page에서만 캐릭터 흐림/선명 효과 적용 */
@@ -210,14 +212,14 @@ body {
 
 .main-title{
   position: absolute;
-  top: 20px;          
+  top: 7%;          
   left: 50%;
   transform: translateX(-50%);
   z-index: 5;          
 }
 
 .main-title img {
-  width: 500px;       
+  width: 650px;       
   height: auto;
   opacity: 1.0;
 }
@@ -235,7 +237,7 @@ body {
 .main-characters_l {
     left: 25%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
 }
 .main-characters_l .main_character-img {
     transform: scaleX(-1);
@@ -244,7 +246,7 @@ body {
 .main-characters_r {
     right: 25%;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-40%);
 }
 
 /* 캐릭터 래퍼 */
@@ -354,14 +356,14 @@ body {
   left: 50%;
   width: 100%;
   height: 100%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(10%);
 }
 
 
 .note-text {
     position: absolute;
-    top: 110px; /* 노트 이미지 내에서 텍스트가 보여질 위치 */
-    left: 36%;
+    top: 12%; /* 노트 이미지 내에서 텍스트가 보여질 위치 */
+    left: 37.3%;
     width: 400px;
     height: 300px;
     padding: 10px;
@@ -421,20 +423,21 @@ body {
 
 .round2Monitor{
   position: absolute;
-  top: 130px;
   left: 50%;
-  transform: translateX(-50%);
+  top:25%;
+  transform: translateX(-50%) scale(1.14);
   z-index: 5;
 }
+
 
 /* 패킷 분석기 UI - 모니터 내부에 오버레이 */
 .packet-analyzer-overlay {
     position: absolute;
-    top: 161px;
     left: 50%;
-    transform: translateX(-50%);
+    top:27%;
+    transform: translateX(-50%) scale(1.14);
     width: 1080px; /* 모니터 내부 화면 너비 */
-    height: 507px; /* 모니터 내부 화면 높이 */
+    height: 509px; /* 모니터 내부 화면 높이 */
     background: #1e1e1e;
     color: #e0e0e0;
     font-family: 'Consolas', 'Monaco', monospace;

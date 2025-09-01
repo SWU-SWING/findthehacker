@@ -111,7 +111,7 @@ function initializeNextButton() {
             localStorage.setItem('round', 'done'); // 이후는 용의자 선택 페이지
         } else {
             // round 다 끝나면
-            nextUrl = '/select-suspect';
+            nextUrl = '/select';
         }
 
         window.location.href = nextUrl;

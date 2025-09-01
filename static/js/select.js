@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 캐릭터별 대사 설정
     const characterDialogues = {
-        'bae': '저는 백엔드 개발자예요!ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-        'jung': '프론트엔드가 제 전문 분야죠~',
-        'nah': '디자인과 UX에 관심이 많아요!',
-        'noh': '데이터 분석을 주로 해요.',
-        'choi': '보안과 해킹 방어가 제 업무입니다.',
-        'yoon': '풀스택 개발자로 일하고 있어요!'
+        'bae': '배진열: 전 아니에요',
+        'jung': '정도민: 전 아니에요~',
+        'nah': '나옥자: 나도 아니에요',
+        'noh': '노문희: 나도 아니다.',
+        'choi': '최윤의: 나 아니다',
+        'yoon': '윤지강: 아니라고 했다.'
     };
 
     // 페이지 로드 시 대사 설정

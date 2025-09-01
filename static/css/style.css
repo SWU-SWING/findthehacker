@@ -120,16 +120,11 @@ body {
 }
 
 .character {
-  width: 100px; /* 크기 증가 */
+  width: auto; /* 크기 증가 */
   height: auto;
   position: relative;
   filter: drop-shadow(3px 3px 6px rgba(0,0,0,0.4));
-}
-
-#char4,
-#char5{
-  width: 24vh;
-  height: 20vh;
+  transform: translateY(45px); /* 20px 아래로 이동 */
 }
 
 /* 점프 애니메이션 */
@@ -191,11 +186,12 @@ body {
 }
 
 /* 이미지가 기본적으로 scenario.png 로 보이게 할 것 */
+
 .scenario-img {
-  width: 80%; 
+  width: 65%;           /* 기본보다 작게 */
   height: auto;
-  margin-bottom: 60px;
-  transform: translateY(25%); 
+  margin-bottom: 40px;  /* 여백 살짝 줄임 */
+  transform: translateY(32%);
 }
 
 /* desc-page에서만 캐릭터 흐림/선명 효과 적용 */

@@ -235,7 +235,7 @@ body {
 }
 
 .main-characters_l {
-    left: 25%;
+    left: 15%;
     top: 47%;
     transform: translateY(-40%);
 }
@@ -244,7 +244,7 @@ body {
 }
 
 .main-characters_r {
-    right: 25%;
+    right: 15%;
     top: 47%;
     transform: translateY(-40%);
 }
@@ -283,7 +283,7 @@ body {
 }
 
 .main_character-img {
-    width: 120px;
+    width: 170px;
     height: auto;
     transition: all 0.3s ease;
     border-radius: 10px;
@@ -329,7 +329,7 @@ body {
 
 /* 왼쪽 캐릭터들의 말풍선 */
 .speech-left {
-    left: 130px;
+    left: 200px;
     top: 28%;
     transform: translateY(-50%) scale(0.8);
 }
@@ -340,7 +340,7 @@ body {
 
 /* 오른쪽 캐릭터들의 말풍선 */
 .speech-right {
-    right: 130px;
+    right: 200px;
     top: 28%;
     transform: translateY(-50%) scale(0.8);
 }
@@ -352,11 +352,11 @@ body {
 
 .main-note{
   position: absolute;
-  top: 18%;
+  top: 25%;
   left: 50%;
   width: 100%;
   height: 100%;
-  transform: translateX(-50%) translateY(10%);
+  transform: translateX(-50%) translateY(10%) scale(1.35);;
 }
 
 
@@ -390,8 +390,8 @@ body {
 .round2-title {
   position: absolute;
   top: 40px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 40.5%;
+  transform: translateX(-50%) scale(1.05);
   z-index: 5;
 }
 
@@ -401,24 +401,30 @@ body {
 }
 .round2-timer {
   position: absolute;
-  top: 30px;
-  left: 70%;
+  top: 20px;
+  right: 41.5%;
   transform: translateX(-50%);
   z-index: 5;
 }
 .round2-timer img {
-  width: 60px;       
-  height: 60px;
+  width: 80px;       
+  height: 80px;
 }
+/* 타이머 텍스트 */
 #round2_timer-text {
-    position: absolute;
-    top: 50%;
-    left: 120%; /* 기존보다 더 오른쪽으로 */
-    transform: translateY(-50%); /* 수직 정중앙 정렬 */
-    color: black;
-    font-size: 35px;  /* 폰트 크기 키움 */
-    font-weight: bold;  /* 글자 굵게 */
-    font-family: 'Courier New', monospace;
+  position: absolute;
+  top: 50%;         /* 수직 중앙 맞춤 */
+  left: 120%;       /* 이미지 오른쪽에 위치 */
+  transform: translateY(-50%);
+  color: black;
+  font-size: 36px;  /* Round1 폰트 크기 */
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  background-color: rgba(255,255,255,0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 3px solid #333;
+  text-align: center;
 }
 
 .round2Monitor{
@@ -627,9 +633,29 @@ body {
     z-index: 5;
 }
 
+.shadow_l {
+  position: absolute;
+  top: 83%;
+  left: 10%;
+  transform: translateX(-50%);
+  z-index: 1;        /* 그림자는 뒤로 */
+  pointer-events: none;
+}
+
+
+.shadow_r {
+  position: absolute;
+  top: 83%;
+  right: 15%;
+  transform: translateX(50%);
+  z-index: 1;        /* 그림자는 뒤로 */
+  pointer-events: none;
+}
+
+
 .select-characters_l {
-    left: 15%;
-    top: 50%;
+    left: 10%;
+    top: 51.5%;
     transform: translateY(-50%);
 }
 
@@ -638,8 +664,8 @@ body {
 }
 
 .select-characters_r {
-    right: 15%;
-    top: 50%;
+    right: 10%;
+    top: 51.5%;
     transform: translateY(-50%);
 }
 
@@ -668,13 +694,27 @@ body {
 }
 
 .select_character-img {
-    width: 120px;
-    height: auto;
+    height: 230px;
+    width: auto;
     transition: all 0.3s ease;
     border-radius: 10px;
     flex-shrink: 0;
+    z-index: 3;
 }
 
+#char2-left {
+  transform: translateX(-30%) scaleX(-1); /* 왼쪽으로 조금 이동 */
+}
+.select-character_wrapper[data-character="jung"] .select_speech-bubble {
+  transform: translateX(-15%);
+}
+
+#char3-left {
+  transform: translateX(-15%) translateY(20px) scaleX(-1) ; /* 더 왼쪽으로 이동 */
+}
+.select-character_wrapper[data-character="nah"] .select_speech-bubble {
+  transform: translateX(-15%);
+}
 
 /* 말풍선 기본 스타일 */
 .select_speech-bubble {
@@ -696,7 +736,7 @@ body {
 }
 
 .select_speech-img {
-    width: 350px;
+    width: 400px;
     height: auto;
     display: block;
 }
@@ -709,7 +749,7 @@ body {
     transform: translate(-50%, -50%);
     width: 80%;
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
     color: #333;
     line-height: 1.2;
@@ -727,6 +767,7 @@ body {
     border-radius: 50%;
     box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
 }
+
 
 
 /* 다음 버튼 */

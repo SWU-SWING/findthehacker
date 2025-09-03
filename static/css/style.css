@@ -283,8 +283,9 @@ body {
 }
 
 .main_character-img {
-    width: 170px;
-    height: auto;
+    height: 280px;
+    width: auto;
+    
     transition: all 0.3s ease;
     border-radius: 10px;
 }
@@ -345,6 +346,9 @@ body {
     transform: translateY(-50%) scale(0.8);
 }
 
+.main-character_wrapper[data-character="bae"] .main_character-img {
+  transform: translateX(-30%) scaleX(-1);
+}
 .main-character_wrapper.active .speech-right {
     transform: translateY(-50%) scale(1);
 }

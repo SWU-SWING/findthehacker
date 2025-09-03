@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FindTheHacker-round2</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         /* 장식 요소들 */
         .decoration {
@@ -64,8 +65,19 @@
             background: url('/static/img/juingong_deco.png') no-repeat center;
             background-size: contain;
         }
+        /* 바닥 잔디 */
+        .grass {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150%;
+            height: 90px;
+            background: url('/static/img/grass.png') repeat-x bottom;
+            background-size: auto 110px;
+            z-index: 10;
+        }
     </style>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
 </head>
 <body style="position: relative;">
     <!-- 장식 요소들 추가 -->
@@ -75,6 +87,8 @@
     <div class="decoration news-deco"></div>
     <div class="decoration microphone-deco"></div>
     <div class="decoration juingong-deco"></div>
+
+    <div class="grass"></div>
 
     <!-- Round2 타이틀 -->
     <div class="round2-title">

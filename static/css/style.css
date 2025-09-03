@@ -295,7 +295,7 @@ body {
     position: absolute;
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.8);
+    transform: scale(0.9);
     transition: all 0.3s ease;
     z-index: 20;
 }
@@ -740,7 +740,7 @@ body {
 }
 
 .select_speech-img {
-    width: 400px;
+    width: 450px;
     height: auto;
     display: block;
 }

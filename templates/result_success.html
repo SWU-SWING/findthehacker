@@ -49,19 +49,19 @@
 
         /* 왼쪽 경찰관 */
         .success-cop {
-            margin-bottom: 14vh;   /* 위로 조금 올림 */
+            margin-bottom: 16vh;   /* 위로 조금 올림 */
             position: relative;
             left: -7.2vw;           /* 왼쪽으로 이동 */
-            transform: scale(4) scaleX(-1); /* X축 반전 */
+            transform: scale(5) scaleX(-1); /* X축 반전 */
         }
 
         /* 가운데 치오 */
         .success-chio {
-            transform: scale(3.5);
+            transform: scale(5);
             position: relative;
-            left: -25vw;
+            left: -20vw;
             max-width: 20vw;
-            margin-bottom: 12vh;
+            margin-bottom: 16vh;
         }
 
         /* 오른쪽 주인공 */
@@ -138,9 +138,9 @@
             top: 40vh;
             left: 68vh;
             transform: translateX(-50%);
-            z-index: 3;
-            width: auto;
-            max-width: 35vw;
+          
+            width: 40vw;
+            max-width: 50vw;
             height: auto;
             image-rendering: pixelated;
             image-rendering: -moz-crisp-edges;
@@ -149,27 +149,7 @@
 
         
 
-        /* 반응형 조정 - 타이틀과 말풍선 */
-        @media (max-width: 768px) {
-            .success-title {
-                top: 6vh;
-                max-width: 120vw;
-            }
-
-            .speech-container {
-                top: 20vh;
-                right: 5vw;
-            }
-
-            .success-speechballoon {
-                max-width: 45vw;
-            }
-
-            .success-dialogue {
-                max-width: 30vw;
-            }
-        }
-
+       
         @media (max-width: 480px) {
             .success-title {
                 top: 5vh;
@@ -182,13 +162,7 @@
                 right: 3vw;
             }
 
-            .success-speechballoon {
-                max-width: 55vw;
-            }
-
-            .success-dialogue {
-                max-width: 35vw;
-            }
+     
         }
 
         /* 장식 아이템들 */
@@ -229,7 +203,7 @@
 
         /* 왼쪽 하단 - 마이크로폰(돋보기) 아이콘 */
         .success-microphone {
-            bottom: 35vh;
+            bottom: 40vh;
             left: 8vw;
             width: auto;
             max-width: 13vw;
@@ -238,19 +212,19 @@
 
         /* 가운데 하단 - 물음표 아이콘 */
         .success-question {
-            bottom: 12vh;
+            bottom: 10vh;
             left: 45vw;
-            width: auto;
-            max-width: 12vw;
+            width: 8.5vw;
+            max-width: 18vw;
             height: auto;
         }
 
         /* 오른쪽 하단 - 돈 아이콘 */
         .success-money {
-            bottom: 24vh;
+            bottom: 21vh;
             right: 34vw;
-            width: auto;
-            max-width: 11vw;
+            width: 9.5vw;
+            max-width: 16vw;
             height: auto;
         }
 

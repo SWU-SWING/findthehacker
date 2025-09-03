@@ -24,11 +24,92 @@
             align-items: center;
         }
 
+        /* 장식 요소들 */
+        .decoration {
+            position: absolute;
+            z-index: 10;
+        }
+
+        /*수정 완료*/
+        .chim-deco {
+            top: 50px;
+            left: 240px;
+            width: 190px;
+            height: 190px;
+            background: url('/static/img/chim_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+        
+/*수정 완료*/
+        .rocket-deco {
+            top: 190px;
+            left : 60px;
+            width: 70px;
+            height: 86px;
+            background: url('/static/img/rocket_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+        /*수정 완료*/
+        .emoji-deco {
+            bottom : 150px;
+            left: 120px;
+            width: 155px;
+            height: 155px;
+            background: url('/static/img/emoji_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+        /*수정 완료*/
+        .news-deco {
+            bottom : 190px;
+            right: 56px;
+            width: 170px;
+            height: 155px;
+            background: url('/static/img/news_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+
+        /*수정 완료*/
+        .microphone-deco {
+            top: 340px;
+            right: 8px;
+            width: 165px;
+            height: 165px;
+            background: url('/static/img/microphone_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+        .juingong-deco {
+            top: 85px;
+            right: 235px;
+         width: 170px;
+            height: 170px;
+            background: url('/static/img/juingong_deco.png') no-repeat center;
+            background-size: contain;
+        }
+
+        /* 바닥 잔디 */
+        .grass {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 150%;
+            height: 90px;
+            background: url('/static/img/grass.png') repeat-x bottom;
+            background-size: auto 110px;
+            z-index: 1;
+        }
+
         .title-section {
             margin-top: 20px;
             display: flex;
             align-items: center;
             gap: 30px;
+            z-index: 5;
+            position: relative;
         }
 
         .round-title {
@@ -71,6 +152,7 @@
             width: 80%;
             max-width: 1900px;
             height: 1500px;
+            z-index: 5;
         }
 
         .monitor {
@@ -242,8 +324,8 @@
             100% { content: '조회 중.'; }
         }
 
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
+        /* 반응형 디자인 - PC 전용이므로 모바일 스타일 제거 */
+        @media (max-width: 1024px) {
             .title-section {
                 flex-direction: column;
                 gap: 15px;
@@ -304,6 +386,17 @@
 </head>
 <body>
     <div class="container">
+        <!-- 장식 요소들 -->
+        <div class="decoration chim-deco"></div>
+        <div class="decoration rocket-deco"></div>
+        <div class="decoration emoji-deco"></div>
+        <div class="decoration news-deco"></div>
+        <div class="decoration microphone-deco"></div>
+        <div class="decoration juingong-deco"></div>
+
+        <!-- 바닥 잔디 -->
+        <div class="grass"></div>
+
         <div class="title-section">
             <div class="round-title"></div>
             <div class="timer"></div>

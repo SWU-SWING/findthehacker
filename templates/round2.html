@@ -9,7 +9,7 @@
         /* 장식 요소들 */
         .decoration {
             position: absolute;
-            z-index: 10;
+            z-index: 60;
         }
 
         .chim-deco {
@@ -66,7 +66,7 @@
             background-size: contain;
         }
         /* 바닥 잔디 */
-        .grass {
+        .grass2 {
             position: absolute;
             bottom: 0;
             left: 0;
@@ -80,30 +80,26 @@
     
 </head>
 <body style="position: relative;">
-    <!-- 장식 요소들 추가 -->
-    <div class="decoration chim-deco"></div>
-    <div class="decoration rocket-deco"></div>
-    <div class="decoration emoji-deco"></div>
-    <div class="decoration news-deco"></div>
-    <div class="decoration microphone-deco"></div>
-    <div class="decoration juingong-deco"></div>
 
-    <div class="grass"></div>
 
-    <!-- Round2 타이틀 -->
-    <div class="round2-title">
-        <img src="{{ url_for('static', filename='img/title_round2.png') }}" alt="Round2_Title">
+    <div class="round2-header">
+        <!-- Round2 타이틀 -->
+        <div class="round2-title">
+            <img src="{{ url_for('static', filename='img/title_round2.png') }}" alt="Round2_Title">
+        </div>
+        <!-- 타이머 -->
+        <div class="round2-timer">
+            <img src="{{ url_for('static', filename='img/timer_round2.png') }}" alt="Round2_Timer">
+            <span id="round2_timer-text">01:30</span>
+        </div>
+
     </div>
 
-    <!-- 타이머 -->
-    <div class="round2-timer">
-        <img src="{{ url_for('static', filename='img/timer_round2.png') }}" alt="Round2_Timer">
-        <span id="round2_timer-text">01:30</span>
-    </div>
-
-    <!-- 모니터 이미지 -->
-    <div class="round2-container">
-        <img class="round2Monitor" src="{{ url_for('static', filename='img/monitor_round2.png') }}" alt="Round2_Monitor">
+    <div class="round2-wrapper" >
+        <!-- 모니터와 장식 요소 -->
+        <div class="round2-container">
+            <div class="round2Monitor"></div>
+        </div>
     </div>
 
     <!-- 패킷 분석기 UI -->
@@ -152,6 +148,15 @@
             <div class="packet-detail" id="packet-detail"></div>
         </div>
     </div>
+            <!-- 장식 요소들 추가 -->
+    <div class="decoration chim-deco"></div>
+    <div class="decoration rocket-deco"></div>
+    <div class="decoration emoji-deco"></div>
+    <div class="decoration news-deco"></div>
+    <div class="decoration microphone-deco"></div>
+    <div class="decoration juingong-deco"></div>
+
+    <div class="grass2"></div>
 
     <script src="{{ url_for('static', filename='js/round2.js') }}"></script>
 </body>

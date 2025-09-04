@@ -391,63 +391,89 @@ body {
   transform: translateX(-50%); /* 자기 너비의 50%만큼 왼쪽으로 이동해 정확히 중앙 정렬 */
   z-index: 10;   /* 다른 요소 위로 올라오게 (필요시) */
 }
-.round2-title {
-  position: absolute;
-  top: 40px;
-  left: 40.5%;
-  transform: translateX(-50%) scale(1.05);
-  z-index: 5;
+/* 헤더 전체 컨테이너 */
+.round2-header {
+    position: absolute;
+    top: 20px;            /* 전체 상단 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;   /* 타이틀과 타이머 수직 중앙 맞춤 */
+    gap: 20px;             /* 타이틀과 타이머 사이 간격 */
+    z-index: 5;
 }
 
+/* 타이틀 */
 .round2-title img {
-  width: 280px;       
-  height: 45px;
+    width: 300px;
+    height: 45px;
 }
+
+/* 타이머 */
 .round2-timer {
-  position: absolute;
-  top: 20px;
-  right: 41.5%;
-  transform: translateX(-50%);
-  z-index: 5;
+    display: flex;
+    align-items: center;
+    gap: 20px;             /* 이미지와 텍스트 사이 간격 */
 }
+
 .round2-timer img {
-  width: 80px;       
-  height: 80px;
+    width: 80px;
+    height: 80px;
 }
+
 /* 타이머 텍스트 */
 #round2_timer-text {
-  position: absolute;
-  top: 50%;         /* 수직 중앙 맞춤 */
-  left: 120%;       /* 이미지 오른쪽에 위치 */
-  transform: translateY(-50%);
-  color: black;
-  font-size: 36px;  /* Round1 폰트 크기 */
-  font-weight: bold;
-  font-family: 'Courier New', monospace;
-  background-color: rgba(255,255,255,0.8);
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 3px solid #333;
-  text-align: center;
+    color: black;
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    background-color: rgba(255,255,255,0.8);
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 3px solid #333;
+    text-align: center;
 }
 
-.round2Monitor{
-  position: absolute;
-  left: 50%;
-  top:25%;
-  transform: translateX(-50%) scale(1.14);
-  z-index: 5;
+body, html {
+    margin: 0;
+    height: 100%;
 }
 
+.round2-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh; /* 화면 전체 */
+    justify-content: flex-start; /* 상단에서 시작 */
+    position: relative;
+}
+
+.round2-container {
+    margin-top: 30px;
+    position: relative;
+    width: 80%;
+    max-width: 1900px;
+    height: 1500px;
+}
+
+.round2Monitor {
+    width: 100%;
+    height: 100%;
+    background: url('/static/img/monitor_round2.png') no-repeat center;
+    background-size: contain; /* 이미지 비율 유지 */
+    position: relative;
+    transform: translateY(55px); /* 숫자 조절 가능 */
+    z-index: 49;
+}
 
 /* 패킷 분석기 UI - 모니터 내부에 오버레이 */
 .packet-analyzer-overlay {
     position: absolute;
     left: 50%;
-    top:27%;
+    top:27.5%;
     transform: translateX(-50%) scale(1.14);
-    width: 1080px; /* 모니터 내부 화면 너비 */
-    height: 509px; /* 모니터 내부 화면 높이 */
+    width: 1090px; /* 모니터 내부 화면 너비 */
+    height: 509.8px; /* 모니터 내부 화면 높이 */
     background: #1e1e1e;
     color: #e0e0e0;
     font-family: 'Consolas', 'Monaco', monospace;
@@ -614,6 +640,41 @@ body {
     display: none; /* 기본적으로 숨김 */
 }
 
+@media (max-width: 768px) {
+    .round2-container {
+        width: 95%;
+        height: 400px;
+    }
+
+    .round2-header {
+    position: absolute;
+    top: 20px;            /* 전체 상단 위치 */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;   /* 타이틀과 타이머 수직 중앙 맞춤 */
+    gap: 20px;             /* 타이틀과 타이머 사이 간격 */
+    z-index: 5;
+    }
+
+    .round2Monitor {
+        transform: translateY(20px) scale(0.8);
+        z-index: 49; /* 모바일에서도 장식 위로 */
+    }
+
+    .packet-analyzer-overlay {
+        width: 95%;
+        height: 300px;
+        transform: translateX(-50%) scale(0.8);
+    }
+
+    .round2-packetlist th, 
+    .round2-packetlist td {
+        font-size: 8px;
+        padding: 3px 5px;
+    }
+}
+
 .select-title{
   position: absolute;
   top: 7%;          
@@ -740,15 +801,16 @@ body {
 }
 
 .select_speech-img {
-    width: 450px;
+    width: 380px;
     height: auto;
     display: block;
+    transform: translateY(10%);
 }
 
 /* 말풍선 텍스트 */
 .select_speech-text {
     position: absolute;
-    top: 30%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 80%;

@@ -236,7 +236,7 @@ body {
 
 .main-characters_l {
     left: 15%;
-    top: 47%;
+    top: 45%;
     transform: translateY(-40%);
 }
 .main-characters_l .main_character-img {
@@ -283,7 +283,7 @@ body {
 }
 
 .main_character-img {
-    height: 245px;
+    height: 235px;
     width: auto;
     
     transition: all 0.3s ease;
@@ -356,18 +356,18 @@ body {
 
 .main-note{
   position: absolute;
-  top: 25%;
+  top: 29%;
   left: 50%;
   width: 100%;
   height: 100%;
-  transform: translateX(-50%) translateY(10%) scale(1.35);;
+  transform: translateX(-50%) scale(1.25);;
 }
 
 
 .note-text {
     position: absolute;
     top: 12%; /* 노트 이미지 내에서 텍스트가 보여질 위치 */
-    left: 37.3%;
+    left: 37.2%;
     width: 400px;
     height: 300px;
     padding: 10px;
@@ -386,9 +386,9 @@ body {
 #nextButton {
   position: fixed;
   cursor: pointer;
-  bottom: 25px; /* 화면 아래에서 30px 위 */
+  bottom: 2%; /* 화면 아래에서 30px 위 */
   left: 50%;     /* 수평 중앙 기준점 */
-  transform: translateX(-50%); /* 자기 너비의 50%만큼 왼쪽으로 이동해 정확히 중앙 정렬 */
+  transform: translateX(-50%) scale(0.7); /* 자기 너비의 50%만큼 왼쪽으로 이동해 정확히 중앙 정렬 */
   z-index: 10;   /* 다른 요소 위로 올라오게 (필요시) */
 }
 /* 헤더 전체 컨테이너 */
@@ -472,8 +472,10 @@ body, html {
     left: 50%;
     top:27.5%;
     transform: translateX(-50%) scale(1.14);
-    width: 1090px; /* 모니터 내부 화면 너비 */
-    height: 509.8px; /* 모니터 내부 화면 높이 */
+    left: 50%;   /* 모니터 화면 시작 X */
+    top: 22.3%;      /* 모니터 화면 시작 Y */
+    width: 79.5%;    /* 모니터 내부 화면 너비 */
+    height:57%;   /* 모니터 내부 화면 높이 */
     background: #1e1e1e;
     color: #e0e0e0;
     font-family: 'Consolas', 'Monaco', monospace;
@@ -801,7 +803,7 @@ body, html {
 }
 
 .select_speech-img {
-    width: 380px;
+    width: 375px;
     height: auto;
     display: block;
     transform: translateY(10%);
@@ -839,9 +841,9 @@ body, html {
 /* 다음 버튼 */
 #confirmButton {
     position: absolute;
-    bottom: 30px;
+    bottom: 10px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) scale(0.95);
     cursor: pointer;
     transition: transform 0.3s ease;
     z-index: 10;

@@ -99,55 +99,56 @@
         <!-- 모니터와 장식 요소 -->
         <div class="round2-container">
             <div class="round2Monitor"></div>
+            <!-- 패킷 분석기 UI -->
+            <div class="packet-analyzer-overlay">
+                <div class="top-bar">
+                    <span class="round2-logo">🛡 Packet Analyzer</span>
+                    <div class="round2-controls">
+                        <button class="round2-btn" onclick="loadPacketData()">PCAP 불러오기</button>
+                        <button class="round2-btn hint" onclick="showHint()">💡 힌트</button>
+                    </div>
+                </div>
+
+                <div class="round2-filterbar">
+                    <select id="protocol-filter" onchange="filterPackets()">
+                        <option value="">모든 프로토콜</option>
+                        <option value="HTTP">HTTP</option>
+                        <option value="TCP">TCP</option>
+                        <option value="DNS">DNS</option>
+                        <option value="UDP">UDP</option>
+                    </select>
+                    <input type="text" id="search-input" placeholder="내용 검색" onkeyup="filterPackets()">
+                    <button class="round2-btn" onclick="filterPackets()">검색</button>
+                    <button class="round2-btn" onclick="clearFilters()">초기화</button>
+                </div>
+
+                <div class="round2-main-content">
+                    <div class="round2-packetlist-container">
+                        <table class="round2-packetlist" id="packet-table">
+                            <thead>
+                                <tr>
+                                    <th>No.</th>
+                                    <th>Time (s)</th>
+                                    <th>Source</th>
+                                    <th>Destination</th>
+                                    <th>Protocol</th>
+                                    <th>Length</th>
+                                    <th>Info</th>
+                                </tr>
+                            </thead>
+                            <tbody id="packet-table-body">
+                                <!-- JS로 데이터 들어옴 -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="packet-detail" id="packet-detail"></div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- 패킷 분석기 UI -->
-    <div class="packet-analyzer-overlay">
-        <div class="top-bar">
-            <span class="round2-logo">🛡 Packet Analyzer</span>
-            <div class="round2-controls">
-                <button class="round2-btn" onclick="loadPacketData()">PCAP 불러오기</button>
-                <button class="round2-btn hint" onclick="showHint()">💡 힌트</button>
-            </div>
-        </div>
-
-        <div class="round2-filterbar">
-            <select id="protocol-filter" onchange="filterPackets()">
-                <option value="">모든 프로토콜</option>
-                <option value="HTTP">HTTP</option>
-                <option value="TCP">TCP</option>
-                <option value="DNS">DNS</option>
-                <option value="UDP">UDP</option>
-            </select>
-            <input type="text" id="search-input" placeholder="내용 검색" onkeyup="filterPackets()">
-            <button class="round2-btn" onclick="filterPackets()">검색</button>
-            <button class="round2-btn" onclick="clearFilters()">초기화</button>
-        </div>
-
-        <div class="round2-main-content">
-            <div class="round2-packetlist-container">
-                <table class="round2-packetlist" id="packet-table">
-                    <thead>
-                        <tr>
-                            <th>No.</th>
-                            <th>Time (s)</th>
-                            <th>Source</th>
-                            <th>Destination</th>
-                            <th>Protocol</th>
-                            <th>Length</th>
-                            <th>Info</th>
-                        </tr>
-                    </thead>
-                    <tbody id="packet-table-body">
-                        <!-- JS로 데이터 들어옴 -->
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="packet-detail" id="packet-detail"></div>
-        </div>
-    </div>
+    
             <!-- 장식 요소들 추가 -->
     <div class="decoration chim-deco"></div>
     <div class="decoration rocket-deco"></div>

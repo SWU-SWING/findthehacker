@@ -183,4 +183,5 @@ function closePacketDetail() {
     document.getElementById('packet-detail').style.display = 'none';
 }
 localStorage.setItem('round', '2');
+loadPacketData()
 window.onload = startTimer;

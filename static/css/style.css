@@ -466,20 +466,29 @@ body, html {
     z-index: 49;
 }
 
+.packet-background {
+    position: absolute;
+    transform: translateX(-50%) scale(1.14);
+    left: 50%;   
+    top: 25.3%;    
+    width: 79.5%;  
+    height: 50.5%;   
+    background: #000000;   /* 패킷 오버레이 배경과 동일 */
+    z-index: 50;          /* 모니터 위(z=49), 오버레이 아래(z=50) */
+}
+
 /* 패킷 분석기 UI - 모니터 내부에 오버레이 */
 .packet-analyzer-overlay {
     position: absolute;
-    left: 50%;
-    top:27.5%;
     transform: translateX(-50%) scale(1.14);
     left: 50%;   /* 모니터 화면 시작 X */
-    top: 22.3%;      /* 모니터 화면 시작 Y */
+    top: 25.5%;      /* 모니터 화면 시작 Y */
     width: 79.5%;    /* 모니터 내부 화면 너비 */
-    height:57%;   /* 모니터 내부 화면 높이 */
+    height:49%;   /* 모니터 내부 화면 높이 */
     background: #1e1e1e;
     color: #e0e0e0;
     font-family: 'Consolas', 'Monaco', monospace;
-    z-index: 50;
+    z-index: 51;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -505,6 +514,7 @@ body, html {
 .round2-controls {
     display: flex;
     gap: 8px;
+    z-index: 101;
 }
 
 .round2-btn {
@@ -515,6 +525,7 @@ body, html {
     border-radius: 3px;
     cursor: pointer;
     font-size: 10px;
+    z-index: 101;
 }
 
 .round2-btn:hover {

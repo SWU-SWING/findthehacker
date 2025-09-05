@@ -9,7 +9,7 @@
         /* 장식 요소들 */
         .decoration {
             position: absolute;
-            z-index: 60;
+            z-index: 52;
         }
 
         .chim-deco {
@@ -99,12 +99,13 @@
         <!-- 모니터와 장식 요소 -->
         <div class="round2-container">
             <div class="round2Monitor"></div>
+            <!-- 새 배경 레이어 -->
+            <div class="packet-background"></div>
             <!-- 패킷 분석기 UI -->
             <div class="packet-analyzer-overlay">
                 <div class="top-bar">
                     <span class="round2-logo">🛡 Packet Analyzer</span>
                     <div class="round2-controls">
-                        <button class="round2-btn" onclick="loadPacketData()">PCAP 불러오기</button>
                         <button class="round2-btn hint" onclick="showHint()">💡 힌트</button>
                     </div>
                 </div>
@@ -149,7 +150,7 @@
     </div>
 
     
-            <!-- 장식 요소들 추가 -->
+    <!-- 장식 요소들 추가 -->
     <div class="decoration chim-deco"></div>
     <div class="decoration rocket-deco"></div>
     <div class="decoration emoji-deco"></div>
